@@ -57,58 +57,46 @@
 <body>
 
     <header>
-        <div class="top-bar">
-            <div class="support">
-                <i class="fas fa-headset"></i>
-                <div>
-                    <span>Soporte al cliente</span><br>
-                    <strong>123-456-7890</strong>
-                </div>
-            </div>
-            
-            <div class="logo">
-                <i class="fas fa-coffee"></i>  Grano Urbano
-            </div>
+  <div class="top-bar">
+    <div class="support">
+      <i class="fas fa-headset"></i>
+      <span>Soporte al cliente<br><strong>123-456-7890</strong></span>
+    </div>
 
-            <div class="user-actions" style="display: flex; align-items: center; gap: 15px;">
-                <i class="far fa-user" id="icon-user-login" onclick="abrirModalAuth()" style="cursor: pointer; font-size: 20px;" title="Iniciar Sesión / Registro"></i>
-                
-                <span id="user-greeting" style="display: none; font-weight: bold; font-size: 14px; color: #c08267;"></span>
-                <i class="fas fa-sign-out-alt" id="icon-logout" onclick="cerrarSesion()" style="display: none; cursor: pointer; font-size: 20px; color: #555;" title="Cerrar Sesión"></i>
+    <div class="logo">
+      <i class="fas fa-coffee"></i>
+      <h1>Grano Urbano</h1>
+    </div>
 
-                <div class="cart">
-                    <i class="fas fa-shopping-basket"></i>
-                    <span>Shopping Cart (0)</span>
-                </div>
-            </div>
-        </div>
+    <div class="user-actions">
+      <i class="far fa-user" id="icon-user-login" onclick="abrirModalAuth()"></i>
+      <div class="cart">
+        <i class="fas fa-shopping-basket"></i>
+        <span>Shopping Cart (0)</span>
+      </div>
+    </div>
+  </div>
 
-        <nav>
-            <ul>
-                <li><a href="#">INICIO</a></li>
-                <li class="dropdown">
-    <a href="#">MENU</a>
-    <ul class="dropdown-menu">
-        <li><a href="productos.html">cafe Expreso</a></li>
+  <nav>
+    <ul>
+      <li><a href="#">INICIO</a></li>
+      <li class="dropdown">
+        <a href="#">MENU</a>
+        <ul class="dropdown-menu">
+          <li><a href="productos.html">cafe Expreso</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Acerca de nosotros</a>
+        <ul class="dropdown-menu">
+          <li><a href="atencion.html">Atencion al cliente</a></li>
+          <li><a href="trabajo.html">Trabaja con nosotros</a></li>
+          <li><a href="terminos.html">Terminos y condiciones</a></li>
+        </ul>
+      </li>
     </ul>
-</li>
-        
-                <li class="dropdown">
-                    <a href="#">Acerca de nosotros</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="atencion.html">Atencion al cliente</a></li>
-                        <li><a href="trabajo.html">Trabaja con nosotros</a></li>
-                        <li><a href="terminos.html">Terminos y condiciones</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">APLICACION</a></li>
-            </ul>
-            <div class="search-box">
-                <input type="text" placeholder="Buscar...">
-                <button><i class="fas fa-search"></i></button>
-            </div>
-        </nav>
-    </header>
+  </nav>
+</header>
 
     <main>
         <section class="hero">
