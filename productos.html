@@ -285,7 +285,58 @@
 
     </div>
 </div>
+<script type="module">
+    // 1. Importamos Firebase desde la web (CDNs)
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+    // 2. Tu configuración real
+    const firebaseConfig = {
+        apiKey: "AIzaSyBnJPl8MVEzM46p-Su3xJC3IzYA28p0kYk",
+        authDomain: "grano-urbano.firebaseapp.com",
+        projectId: "grano-urbano",
+        storageBucket: "grano-urbano.firebasestorage.app",
+        messagingSenderId: "176171507437",
+        appId: "1:176171507437:web:3f316b318a60dffd0476e4"
+    };
+
+    // 3. Inicializamos[cite: 1]
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // 4. Función para cargar los cafés[cite: 1]
+    async function cargarProductos() {
+        const contenedor = document.getElementById('contenedor-productos');
+        try {
+            const querySnapshot = await getDocs(collection(db, "productos"));
+            let htmlFinal = '';
+
+            querySnapshot.forEach((doc) => {
+                const cafe = doc.data();
+                htmlFinal += `
+                    <div class="tarjeta-beige" 
+                         onclick="abrirDetalle(this)" 
+                         data-nombre="${cafe.nombre}" 
+                         data-precio="$${cafe.precio}" 
+                         data-descripcion="${cafe.descripcion}">
+                        <img src="${cafe.imagen}" alt="${cafe.nombre}">
+                        <h3>${cafe.nombre}</h3>
+                        <p>${cafe.descripcion}</p>
+                        <a href="javascript:void(0)">COMPRAR</a>
+                    </div>
+                `;
+            });
+            contenedor.innerHTML = htmlFinal;
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
+    cargarProductos();
+</script>
+
 <script>
+
+    
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     
