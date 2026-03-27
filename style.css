@@ -1293,3 +1293,175 @@ body {
     transition: 0.3s;
 }
 .btn-agregar-bolsa:hover { background-color: #b85f20; }
+
+/* =========================================
+   ESTILOS DEL CARRITO DE COMPRAS
+   ========================================= */
+
+.cart-card {
+    display: flex;
+    flex-direction: column;
+    height: 85vh; /* Ocupa casi toda la altura para parecer app */
+    max-height: 650px;
+    background-color: #FAFAFA;
+    padding: 0; /* Quitamos padding general para controlar por secciones */
+}
+
+/* Encabezado */
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #EEE;
+}
+
+.cart-header h2 { font-size: 1.2rem; color: #333; margin: 0; font-weight: bold;}
+
+.btn-back-cart, .btn-clear-cart {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #777;
+    cursor: pointer;
+}
+
+/* Contenedor de los productos */
+.cart-items-container {
+    flex: 1; /* Ocupa el espacio restante */
+    overflow-y: auto; /* Permite dar scroll si hay muchos productos */
+    padding: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Esto hace la foto circular */
+    object-fit: cover;
+    margin-right: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.cart-item-info { flex: 1; }
+
+.cart-item-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.cart-item-price {
+    font-weight: bold;
+    color: #D67229; /* Naranja/Café para que resalte */
+    font-size: 0.9rem;
+}
+
+/* Botoncitos de + y - en el carrito */
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid #EEE;
+}
+
+.cart-item-quantity button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+}
+
+.qty-number { font-size: 0.9rem; font-weight: bold; }
+
+/* Resumen de pago (Total, Tax, etc) */
+.cart-summary {
+    padding: 20px;
+    background: white;
+    border-top: 1px solid #EEE;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.total-row {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #DDD;
+}
+
+.total-row span:last-child {
+    color: #D67229;
+}
+
+/* Botón Pagar */
+.btn-pay-now {
+    width: calc(100% - 40px);
+    margin: 0 20px 20px 20px;
+    background-color: #bfa58a; /* Tu color café temático */
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-pay-now:hover { background-color: #a88d72; }
+
+/* Estilos para el botón flotante temporal */
+.cart-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #D67229; /* Color naranja/café */
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000; /* Para que quede por encima de todo */
+}
+
+.cart-contador {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
