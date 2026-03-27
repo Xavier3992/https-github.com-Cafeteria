@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Grano Urbano</title>
+    <title>Grano Urbano</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -24,7 +24,7 @@
             </div>
 
             <div class="user-actions">
-                <i class="far fa-user"></i>
+                <i class="far fa-user" onclick="abrirModalLogin()" style="cursor: pointer;" title="Crear Cuenta"></i>
                 <div class="cart">
                     <i class="fas fa-shopping-basket"></i>
                     <span>Shopping Cart (0)</span>
@@ -36,23 +36,21 @@
             <ul>
                 <li><a href="#">INICIO</a></li>
                 <li class="dropdown">
-    <a href="#">MENU</a>
-    <ul class="dropdown-menu">
-        <li><a href="pasteleria.html">Panadería y pasteleria</a></li>
-         <li><a href="productos.html">cafe Expreso</a></li>
-    </ul>
-</li>
+                    <a href="#">MENU</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pasteleria.html">Panadería y pasteleria</a></li>
+                        <li><a href="productos.html">cafe Expreso</a></li>
+                    </ul>
+                </li>
         
-     <li class="dropdown">
-    <a href="#">Acerca de nosotros</a>
-    <ul class="dropdown-menu">
-     <li><a href="atencion.html">Atencion al cliente</a></li>
-       <li><a href="trabajo.html">Trabaja con nosotros</a></li>
-        <li><a href="terminos.html">Terminos y condiciones</a></li>
-
-
-    </ul>
-</li>
+                <li class="dropdown">
+                    <a href="#">Acerca de nosotros</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="atencion.html">Atencion al cliente</a></li>
+                        <li><a href="trabajo.html">Trabaja con nosotros</a></li>
+                        <li><a href="terminos.html">Terminos y condiciones</a></li>
+                    </ul>
+                </li>
                 <li><a href="#">APLICACION</a></li>
             </ul>
             <div class="search-box">
@@ -63,12 +61,11 @@
     </header>
 
     <main>
-
         <section class="hero">
             <div class="hero-content">
                 <span>Café Delicioso</span>
                 <h1>100% Natural<br>Café Fresco</h1>
-  <a href="productos.html" class="btn-main" style="text-decoration: none; display: inline-block;">COMPRAR AHORA</a>
+                <a href="productos.html" class="btn-main" style="text-decoration: none; display: inline-block;">COMPRAR AHORA</a>
             </div>
         </section>
         
@@ -107,7 +104,6 @@
             <div class="cat-info">
                 <h3>cafe expreso </h3>
             </div>
-          
         </article>
 
         <article class="cat-card" style="background-image: url('https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=500&auto=format&fit=crop');">
@@ -116,223 +112,196 @@
                 <h3>pasteleria </h3>
             </div>
         </article>
+    </main>
 
-    </div>
-</section>
+    <section class="ofertas-section">
+        <h2 class="ofertas-title">Ofertas del día</h2>
 
-
-
-<section class="ofertas-section">
-    <h2 class="ofertas-title">Ofertas del día</h2>
-
-   <div class="filtros-container">
-    <button class="filtro-btn activo" onclick="activarFiltro(this, 'destacados')">Destacados</button>
-    <button class="filtro-btn" onclick="activarFiltro(this, 'recientes')">Más Recientes</button>
-    <button class="filtro-btn" onclick="activarFiltro(this, 'vendidos')">Mas Vendidos</button>
-</div>
-    </div>
-
-    <div class="productos-grid">
-        
-    <div class="producto-card" 
-    data-categoria="destacados recientes"
-    data-nombre="Cafe late"
-            data-precio="4.60"
-            data-descripcion="Delicioso café con un toque de crema batida."
-            onclick="abrirDetalle(this)">
-             <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=300&q=80" alt="Cafe Irish">
-                <span class="descuento-badge">-13%</span>
-            </div>
-            <div class="producto-info">
-                <div class="estrellas">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                </div>
-                <h3 class="producto-nombre">Cafe late</h3>
-                <div class="carrito-icono"><i class="fa-solid fa-basket-shopping"></i></div>
-                <div class="precios">
-                    <span class="precio-actual">$4.60</span>
-                    <span class="precio-viejo">$5.30</span>
-                </div>
-            </div>
+        <div class="filtros-container">
+            <button class="filtro-btn activo" onclick="activarFiltro(this, 'destacados')">Destacados</button>
+            <button class="filtro-btn" onclick="activarFiltro(this, 'recientes')">Más Recientes</button>
+            <button class="filtro-btn" onclick="activarFiltro(this, 'vendidos')">Mas Vendidos</button>
         </div>
 
-            <div class="producto-card"
-            data-categoria="destacados vendidos"
-            data-nombre="Espresso Tonic"
-            data-precio="5.70"
-            data-descripcion="Delicioso café con un toque de crema batida."
-            onclick="abrirDetalle(this)">
-            <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=300&q=80" alt="Espresso Tonic">
-                <span class="descuento-badge">-22%</span>
+        <div class="productos-grid">
             </div>
-            <div class="producto-info">
-                <div class="estrellas">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                </div>
-                <h3 class="producto-nombre">Espresso Tonic</h3>
-                <div class="carrito-icono"><i class="fa-solid fa-basket-shopping"></i></div>
-                <div class="precios">
-                    <span class="precio-actual">$5.70</span>
-                    <span class="precio-viejo">$7.30</span>
-                </div>
-            </div>
-        </div>
+    </section>
 
-            <div class="producto-card" 
-            data-categoria="destacados vendidos recientes"
-            data-nombre="Cafe Australiano"
-            data-precio="1.20"
-            data-descripcion="Delicioso café con un toque de crema batida."
-            onclick="abrirDetalle(this)">
-            <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&q=80" alt="Cafe Australiano">
-                <span class="descuento-badge">-10%</span>
-            </div>
-            <div class="producto-info">
-                <div class="estrellas">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                </div>
-                <h3 class="producto-nombre">Cafe Australiano</h3>
-                <div class="carrito-icono"><i class="fa-solid fa-basket-shopping"></i></div>
-                <div class="precios">
-                    <span class="precio-actual">$1.20</span>
-                    <span class="precio-viejo">$3.30</span>
-                </div>
-            </div>
-        </div>
-
-    <div class="producto-card"
-     data-categoria="destacados vendidos"
-     data-nombre="Cafe Helado"
-     data-precio="$5.60"
-     data-descripcion="Delicioso café con un toque de crema batida."
-     onclick="abrirDetalle(this)">
-     <div class="img-container">
-     <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&q=80" alt="Cafe Helado">
-     <span class="descuento-badge">-20%</span>
-            </div>
-            <div class="producto-info">
-                <div class="estrellas">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                </div>
-                <h3 class="producto-nombre">Cafe Helado</h3>
-                <div class="carrito-icono"><i class="fa-solid fa-basket-shopping"></i></div>
-                <div class="precios">
-                    <span class="precio-actual">$5.60</span>
-                    <span class="precio-viejo">$6.30</span>
-                </div>
-            </div>
-        </div>
-
-         <div class="producto-card"
-          data-categoria="recientes"
-          data-nombre="Irish Coffee"
-          data-precio="$8.60"
-    data-descripcion="Delicioso café con un toque de whiskey irlandés y crema batida."
-     onclick="abrirDetalle(this)">
-            <div class="img-container">
-                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&q=80" alt="Cafe Helado">
-                <span class="descuento-badge">-20%</span>
-            </div>
-            <div class="producto-info">
-                <div class="estrellas">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                </div>
-                <h3 class="producto-nombre">Irish Coffee</h3>
-                <div class="carrito-icono"><i class="fa-solid fa-basket-shopping"></i></div>
-                <div class="precios">
-                    <span class="precio-actual">$8.60</span>
-                    <span class="precio-viejo">$6.30</span>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-
-
-<div id="modal-detalle" class="modal-overlay">
+    <div id="modal-detalle" class="modal-overlay">
         <div class="modal-content">
             <span class="close-btn" onclick="cerrarModal()">&times;</span>
             <h2 id="modal-titulo"></h2>
-        <img id="modal-img" src="" style="width:100%">
-        <p id="modal-descripcion"></p>
-        <span id="modal-precio"></span>
+            <img id="modal-img" src="" style="width:100%">
+            <p id="modal-descripcion"></p>
+            <span id="modal-precio"></span>
+        </div>
     </div>
-</div>
-            
-        
 
-</main>
+    <div id="modal-login" class="modal-overlay">
+        <div class="modal-content" style="max-width: 400px; text-align: center;">
+            <span class="close-btn" onclick="cerrarModalLogin()">&times;</span>
+            <h2>Crear Cuenta</h2>
+            <p>Únete a Grano Urbano</p>
+            
+            <input type="email" id="email-reg" placeholder="Tu correo electrónico" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
+            <input type="password" id="pass-reg" placeholder="Contraseña (mín. 6 letras)" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
+            
+            <button onclick="registrarUsuario()" class="btn-main" style="width: 100%; border: none; cursor: pointer; margin-top: 15px;">REGISTRARSE</button>
+            
+            <p id="mensaje-auth" style="margin-top: 15px; font-weight: bold;"></p>
+        </div>
+    </div>
+            
 </body>
 
-<script>
-// Actualizamos la función para que reciba el botón Y la categoría
-function activarFiltro(botonSeleccionado, categoriaSeleccionada) {
-    
-    // 1. Cambiar la pastilla visual (lo que ya tenías)
-    const botones = document.querySelectorAll('.filtro-btn');
-    botones.forEach(boton => {
-        boton.classList.remove('activo');
-    });
-    botonSeleccionado.classList.add('activo');
+<script type="module">
+    // 1. Importamos Firebase Firestore y Authentication
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
-    // 2. Filtrar las tarjetas de productos
-    const productos = document.querySelectorAll('.producto-card');
-    
-    productos.forEach(producto => {
-        // Leemos qué categoría tiene este producto en específico
-        const categoriaDelProducto = producto.getAttribute('data-categoria');
-        
-        // Si la categoría coincide, lo mostramos. Si no, lo ocultamos con "none"
-        if (categoriaDelProducto.includes(categoriaSeleccionada)) {
-            producto.style.display = 'flex'; 
-        } else {
-            producto.style.display = 'none'; 
+    // 2. Tus llaves de acceso
+    const firebaseConfig = {
+      apiKey: "AIzaSyBnJPl8MVEzM46p-Su3xJC3IzYA28p0kYk",
+      authDomain: "grano-urbano.firebaseapp.com",
+      projectId: "grano-urbano",
+      storageBucket: "grano-urbano.firebasestorage.app",
+      messagingSenderId: "176171507437",
+      appId: "1:176171507437:web:3f316b318a60dffd0476e4"
+    };
+
+    // 3. Inicializamos los servicios
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app); // Iniciamos el motor de usuarios
+
+    // --- LÓGICA DE PRODUCTOS ---
+    async function cargarProductos() {
+        const querySnapshot = await getDocs(collection(db, "productos"));
+        const contenedor = document.querySelector('.productos-grid');
+        contenedor.innerHTML = ""; 
+
+        querySnapshot.forEach((doc) => {
+            const cafe = doc.data();
+            
+            const tarjetaHTML = `
+            <div class="producto-card" 
+                 data-categoria="${cafe.categoria || 'destacados'}" 
+                 data-nombre="${cafe.nombre}" 
+                 data-precio="${cafe.precio}" 
+                 data-descripcion="${cafe.descripcion}"
+                 onclick="abrirDetalle(this)">
+                 <div class="img-container">
+                    <img src="${cafe.imagen}" alt="${cafe.nombre}">
+                    <span class="descuento-badge">-15%</span>
+                </div>
+                <div class="producto-info">
+                    <div class="estrellas">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                    </div>
+                    <h3 class="producto-nombre">${cafe.nombre}</h3>
+                    <div class="carrito-icono"><i class="fa-solid fa-basket-shopping"></i></div>
+                    <div class="precios">
+                        <span class="precio-actual">${cafe.precio}</span>
+                    </div>
+                </div>
+            </div>
+            `;
+            
+            contenedor.innerHTML += tarjetaHTML;
+        });
+
+        const botonActivo = document.querySelector('.filtro-btn.activo');
+        if (botonActivo) {
+            window.activarFiltro(botonActivo, 'destacados');
         }
-    });
-}
-
-function abrirDetalle(boton) {
-    // Buscamos hacia arriba si es 'producto-card' O 'tarjeta-beige'
-    const tarjeta = boton.closest('.producto-card, .tarjeta-beige');
-    
-    if (!tarjeta) return; // Seguridad por si acaso
-
-    const titulo = tarjeta.getAttribute('data-nombre');
-    const precio = tarjeta.getAttribute('data-precio');
-    const desc = tarjeta.getAttribute('data-descripcion');
-    const imagen = tarjeta.querySelector('img').src;
-
-    document.getElementById('modal-titulo').innerText = titulo;
-    document.getElementById('modal-precio').innerText = precio;
-    document.getElementById('modal-descripcion').innerText = desc;
-    document.getElementById('modal-img').src = imagen;
-
-    document.getElementById('modal-detalle').style.display = 'flex';
-}
-
-function cerrarModal() {
-    document.getElementById('modal-detalle').style.display = 'none';
-}
-function cerrarModal() {
-    document.getElementById('modal-detalle').style.display = 'none';
-}
-
-// El filtro automático al cargar la página
-window.onload = function() {
-    const botonActivo = document.querySelector('.filtro-btn.activo');
-    if (botonActivo) {
-        activarFiltro(botonActivo, 'destacados');
     }
-};
 
+    // --- FUNCIONES GLOBALES DE LA TIENDA ---
+    window.activarFiltro = function(botonSeleccionado, categoriaSeleccionada) {
+        const botones = document.querySelectorAll('.filtro-btn');
+        botones.forEach(boton => boton.classList.remove('activo'));
+        botonSeleccionado.classList.add('activo');
+
+        const productos = document.querySelectorAll('.producto-card');
+        productos.forEach(producto => {
+            const categoriaDelProducto = producto.getAttribute('data-categoria');
+            if (categoriaDelProducto && categoriaDelProducto.includes(categoriaSeleccionada)) {
+                producto.style.display = 'flex'; 
+            } else {
+                producto.style.display = 'none'; 
+            }
+        });
+    }
+
+    window.abrirDetalle = function(boton) {
+        const tarjeta = boton.closest('.producto-card, .tarjeta-beige');
+        if (!tarjeta) return;
+
+        document.getElementById('modal-titulo').innerText = tarjeta.getAttribute('data-nombre');
+        document.getElementById('modal-precio').innerText = tarjeta.getAttribute('data-precio');
+        document.getElementById('modal-descripcion').innerText = tarjeta.getAttribute('data-descripcion');
+        document.getElementById('modal-img').src = tarjeta.querySelector('img').src;
+
+        document.getElementById('modal-detalle').style.display = 'flex';
+    }
+
+    window.cerrarModal = function() {
+        document.getElementById('modal-detalle').style.display = 'none';
+    }
+
+    // --- LÓGICA DE USUARIOS (REGISTRO) ---
+    window.abrirModalLogin = function() {
+        document.getElementById('modal-login').style.display = 'flex';
+    }
+
+    window.cerrarModalLogin = function() {
+        document.getElementById('modal-login').style.display = 'none';
+        document.getElementById('mensaje-auth').innerText = ""; // Limpia el mensaje si lo cierran
+    }
+
+    window.registrarUsuario = async function() {
+        const email = document.getElementById('email-reg').value;
+        const password = document.getElementById('pass-reg').value;
+        const mensaje = document.getElementById('mensaje-auth');
+
+        // Validación básica
+        if(email === "" || password === "") {
+            mensaje.style.color = "red";
+            mensaje.innerText = "Por favor, llena todos los campos.";
+            return;
+        }
+
+        try {
+            // Creamos el usuario en la base de datos de Google
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+            
+            mensaje.style.color = "green";
+            mensaje.innerText = "¡Cuenta creada! Bienvenido, " + user.email;
+            
+            // Cerramos el modal automáticamente después de 2 segundos
+            setTimeout(() => {
+                cerrarModalLogin();
+            }, 2000);
+
+        } catch (error) {
+            mensaje.style.color = "red";
+            // Traducimos los errores más comunes de Firebase
+            if(error.code === 'auth/email-already-in-use') {
+                mensaje.innerText = "Ese correo ya está registrado.";
+            } else if(error.code === 'auth/weak-password') {
+                mensaje.innerText = "La contraseña debe tener al menos 6 letras/números.";
+            } else if(error.code === 'auth/invalid-email') {
+                mensaje.innerText = "Escribe un correo válido (ej. juan@correo.com).";
+            } else {
+                mensaje.innerText = "Error: " + error.message;
+            }
+        }
+    }
+
+    // 4. Ejecutamos la carga inicial
+    cargarProductos();
 
 </script>
-
-
-
 </html>
