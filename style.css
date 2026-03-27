@@ -4,28 +4,97 @@
 header { width: 100%; }
 
 /* --- NUEVA TOP BAR (Línea 6 en adelante) --- */
+/* --- TOP BAR (Soporte, Logo, Carrito) --- */
 .top-bar {
     display: flex;
+    flex-wrap: wrap; 
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
+    padding: 10px 5%;
     background: #fff;
-    flex-wrap: wrap; /* Clave para el celular */
+    text-align: center;
 }
 
-/* Estas tres líneas aseguran que el logo quede al centro */
-.support, .user-actions { flex: 1; min-width: 150px; display: flex; align-items: center; }
-.logo { flex: 2; text-align: center; font-size: 26px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
-.user-actions { justify-content: flex-end; gap: 20px; font-size: 13px; }
+/* Forzamos que en móvil cada uno ocupe su propia línea */
+.support, .logo, .user-actions {
+    flex: 1 1 100%; /* Ocupan el 100% del ancho en móvil */
+    margin-bottom: 10px;
+}
 
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* --- NAVEGACIÓN (Barra Café) --- */
 nav {
+    background: #d2b48c;
+    padding: 10px 0;
+}
+
+nav ul {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* En móvil, uno abajo de otro */
     align-items: center;
-    background: #d2b48c; 
-    padding: 10px 5%;
-    position: relative; 
-    z-index: 10;
+    list-style: none;
+    gap: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: block;
+    padding: 5px 20px;
+}
+
+/* --- EL TRUCO PARA COMPUTADORA --- */
+@media (min-width: 768px) {
+    .top-bar {
+        flex-wrap: nowrap;
+    }
+    
+    .support, .user-actions {
+        flex: 1;
+    }
+
+    .logo {
+        flex: 2;
+    }
+
+    nav ul {
+        flex-direction: row; /* En compu, vuelven a estar de lado */
+        justify-content: center;
+        gap: 40px;
+    }
+
+    /* Submenús flotantes solo en compu para que no estorben */
+    nav ul .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+    }
+}
+
+/* --- CORRECCIÓN FINAL DE LOS MENÚS BLANCOS --- */
+nav ul .dropdown {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+nav ul .dropdown-menu {
+    display: none;
+    background: #fff;
+    list-style: none;
+    width: 100%; /* En móvil que ocupen todo el ancho */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+nav ul .dropdown:hover .dropdown-menu {
+    display: block;
 }
 
 nav ul { 
