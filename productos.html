@@ -26,11 +26,128 @@
    <section class="tarjetas-container">
     <div class="tarjetas-grid">
 
-    <section class="tarjetas-container">
-        <!-- Le agregamos un ID para que Firebase sepa dónde inyectar los cafés -->
-        <div class="tarjetas-grid" id="contenedor-productos">
-            <!-- Aquí aparecerán los productos de Firebase -->
-            <p style="text-align: center; width: 100%;">Cargando productos del menú...</p>
+     <div class="tarjeta-beige" 
+     onclick="abrirDetalle(this)"
+     data-nombre="Espresso"
+      data-precio="$35.00"
+      data-descripcion="Una carga pura de café intenso y delicioso.">
+     <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=300&q=80" alt="Cafe">
+            <h3>Espresso</h3>
+            <p>Una carga pura de café...</p>
+            <a href="#">COMPRAR</a>
+        </div>
+
+
+     <div class="tarjeta-beige" 
+     onclick="abrirDetalle(this)"
+      data-nombre="Espresso" ...>   
+                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=300&q=80" alt="Cafe">
+                <h3>Americano</h3>
+                <p>Diluido con agua caliente para un sabor más suave.</p>
+                <a href="#">COMPRAR</a>
+            </div>
+    
+            <div class="tarjeta-beige"
+                onclick="abrirDetalle(this)"
+                data-nombre="Macchiato"
+                data-precio="$45.00"
+                data-descripcion="Un espresso con una 'mancha' de espuma de leche.">
+                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=300&q=80" alt="Cafe">
+                <h3>Macchiato</h3>
+                <p>Un espresso con una "mancha" de espuma de leche.</p>
+                <a href="javascript:void(0)">COMPRAR</a>
+            </div>
+            <div class="tarjeta-beige"
+            onclick="abrirDetalle(this)"
+            data-nombre="Cortado"
+            data-precio="$42.00"
+            data-descripcion="Partes iguales de espresso y leche vaporizada.">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
+                <h3>Cortado</h3>
+                <p>Partes iguales de espresso y leche vaporizada.</p>
+                <a href="javascript:void(0)">COMPRAR</a>
+            </div>
+            <div class="tarjeta-beige"
+            onclick="abrirDetalle(this)"
+            data-nombre="Latte"
+            data-precio="$50.00"
+            data-descripcion="Más leche que el cappuccino, con una capa muy fina de espuma">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
+                <h3>Latte</h3>
+                <p>Más leche que el cappuccino, con una capa muy fina de espuma</p>
+                <a href="javascript:void(0)">COMPRAR</a>
+            </div>
+            <div class="tarjeta-beige"
+            onclick="abrirDetalle(this)"
+            data-nombre="Cappuccinor"
+            data-precio="$55.00"
+            data-descripcion="Equilibrio perfecto entre espresso, leche vaporizada y una capa densa de espuma.">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
+                <h3>Cappuccinor</h3>
+                <p>Equilibrio perfecto entre espresso, leche vaporizada y una capa densa de espuma.t</p>
+                <a href="javascript:void(0)">COMPRAR</a>
+            </div>
+            <div class="tarjeta-beige"
+            onclick="abrirDetalle(this)"
+            data-nombre="Flat White"
+            data-precio="$52.00"
+            data-descripcion="Similar al latte pero con una textura de leche más sedosa y doble carga de espresso">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
+                <h3>Flat White</h3>
+                <p>Similar al latte pero con una textura de leche más sedosa y doble carga de espresso</p>
+                <a href="javascript:void(0)">COMPRAR</a>
+            </div>
+            <div class="tarjeta-beige"
+            onclick="abrirDetalle(this)"
+            data-nombre="Moka" 
+            data-precio="$60.00"
+            data-descripcion="La mezcla perfecta de espresso, chocolate oscuro o blanco y leche.">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
+                <h3>Moka</h3>
+                <p>La mezcla perfecta de espresso, chocolate oscuro o blanco y leche.</p>
+                <a href="javascript:void(0)">COMPRAR</a>
+            </div>
+            <div class="tarjeta-beige"
+            onclick="abrirDetalle(this)" 
+            data-nombre="Iced Americano" 
+            data-precio="$45.00"
+            data-descripcion="Las versiones clásicas servidas sobre cubos de hielo.">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
+                <h3>Iced Americano</h3>
+                <p>Las versiones clásicas servidas 
+                sobre cubos de hielo.</p>
+                <a href="#">COMPRAR</a>
+            </div>
+            <div class="tarjeta-beige"
+            onclick="abrirDetalle(this)" 
+    data-nombre="Frappés" 
+    data-precio="$65.00" 
+    data-descripcion="Bebidas granizadas, con base de café, leche y algún jarabe, decoradas con crema batida.">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
+                <h3>Frappés</h3>
+                <p>Bebidas granizadas,con base de café, leche y algún jarabe, decoradas con crema batida.</p>
+                <a href="javascript:void(0)">COMPRAR</a>
+            </div>
+            <div class="tarjeta-beige"
+            onclick="abrirDetalle(this)" 
+    data-nombre="Cold Brew" 
+    data-precio="$55.00" 
+    data-descripcion="Café macerado en agua fría. Es muy suave, poco ácido y con mucha cafeína.">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
+                <h3>Cold Brew</h3>
+                <p>Café macerado en agua fría. Es muy suave, poco ácido y con mucha cafeína.</p>
+                <a href="javascript:void(0)">COMPRAR</a>
+            </div>
+            <div class="tarjeta-beige"
+            onclick="abrirDetalle(this)" 
+    data-nombre="Affogato" 
+    data-precio="$70.00" 
+    data-descripcion="Una bola de helado de vainilla ahogada con un shot de espresso caliente.">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
+                <h3>Affogato</h3>
+                <p>Una bola de helado de vainilla "ahogada" con un shot de espresso caliente.</p>
+                <a href="javascript:void(0)">COMPRAR</a>
+            </div>
         </div>
     </section>
 
@@ -169,74 +286,6 @@
     </div>
 </div>
 <script>
-    <!-- SCRIPT DE FIREBASE -->
-<script type="module">
-    // 1. Importamos Firebase desde los CDNs oficiales de Google
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
-
-    // 2. Tu configuración exacta
-    const firebaseConfig = {
-      apiKey: "AIzaSyBnJPl8MVEzM46p-Su3xJC3IzYA28p0kYk",
-      authDomain: "grano-urbano.firebaseapp.com",
-      projectId: "grano-urbano",
-      storageBucket: "grano-urbano.firebasestorage.app",
-      messagingSenderId: "176171507437",
-      appId: "1:176171507437:web:3f316b318a60dffd0476e4"
-    };
-
-    // 3. Inicializamos la app y la base de datos Firestore
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    // 4. Función maestra para jalar y pintar los productos
-    async function cargarProductos() {
-        const contenedor = document.getElementById('contenedor-productos');
-
-        try {
-            // Jalamos la colección "productos" de Firebase
-            const querySnapshot = await getDocs(collection(db, "productos"));
-            let htmlProductos = '';
-
-            // Por cada café que encuentre, armamos su tarjeta HTML
-            querySnapshot.forEach((doc) => {
-                const data = doc.data();
-                
-                // Formateamos el precio para que siempre tenga 2 decimales
-                const precioFormateado = parseFloat(data.precio).toFixed(2);
-
-                htmlProductos += `
-                <div class="tarjeta-beige" 
-                     onclick="abrirDetalle(this)"
-                     data-nombre="${data.nombre}"
-                     data-precio="$${precioFormateado}"
-                     data-descripcion="${data.descripcion}">
-                    <img src="${data.imagen}" alt="${data.nombre}">
-                    <h3>${data.nombre}</h3>
-                    <p>${data.descripcion}</p>
-                    <a href="javascript:void(0)">COMPRAR</a>
-                </div>
-                `;
-            });
-
-            // Borramos el texto de "Cargando..." e inyectamos los cafés reales
-            contenedor.innerHTML = htmlProductos;
-
-        } catch (error) {
-            console.error("Error cargando desde Firebase:", error);
-            contenedor.innerHTML = '<p style="text-align: center; color: red;">Hubo un error al cargar el menú. Revisa tu conexión.</p>';
-        }
-    }
-
-    // Ejecutamos la función en cuanto carga la página
-    cargarProductos();
-</script>
-
-<!-- AQUÍ ABAJO SIGUE TU SCRIPT ORIGINAL INTACTO -->
-<script>
-function openTab(evt, tabName) {
-// ... resto de tu código
-
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     
