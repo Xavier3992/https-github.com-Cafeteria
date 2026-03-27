@@ -114,11 +114,7 @@
         </article>
     </main>
 
-<<<<<<< HEAD
     <section class="ofertas-section">
-=======
-    </main> <section class="ofertas-section">
->>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
         <h2 class="ofertas-title">Ofertas del día</h2>
 
         <div class="filtros-container">
@@ -128,12 +124,7 @@
         </div>
 
         <div class="productos-grid">
-<<<<<<< HEAD
             </div>
-=======
-            
-        </div>
->>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
     </section>
 
     <div id="modal-detalle" class="modal-overlay">
@@ -145,7 +136,6 @@
             <span id="modal-precio"></span>
         </div>
     </div>
-<<<<<<< HEAD
 
     <div id="modal-login" class="modal-overlay">
         <div class="modal-content" style="max-width: 400px; text-align: center;">
@@ -161,22 +151,14 @@
             <p id="mensaje-auth" style="margin-top: 15px; font-weight: bold;"></p>
         </div>
     </div>
-=======
->>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
             
 </body>
 
 <script type="module">
-<<<<<<< HEAD
     // 1. Importamos Firebase Firestore y Authentication
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
     import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
     import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
-=======
-    // 1. Importamos Firebase
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
->>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
 
     // 2. Tus llaves de acceso
     const firebaseConfig = {
@@ -188,7 +170,6 @@
       appId: "1:176171507437:web:3f316b318a60dffd0476e4"
     };
 
-<<<<<<< HEAD
     // 3. Inicializamos los servicios
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
@@ -199,25 +180,10 @@
         const querySnapshot = await getDocs(collection(db, "productos"));
         const contenedor = document.querySelector('.productos-grid');
         contenedor.innerHTML = ""; 
-=======
-    // 3. Inicializamos
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    // 4. Función para cargar desde Firebase
-    async function cargarProductos() {
-        const querySnapshot = await getDocs(collection(db, "productos"));
-        const contenedor = document.querySelector('.productos-grid');
-        contenedor.innerHTML = ""; // Limpiamos "Cargando..." si hubiera
->>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
 
         querySnapshot.forEach((doc) => {
             const cafe = doc.data();
             
-<<<<<<< HEAD
-=======
-            // Creamos la tarjeta respetando exactamente tu diseño CSS
->>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
             const tarjetaHTML = `
             <div class="producto-card" 
                  data-categoria="${cafe.categoria || 'destacados'}" 
@@ -245,30 +211,16 @@
             contenedor.innerHTML += tarjetaHTML;
         });
 
-<<<<<<< HEAD
-=======
-        // Aplicamos el filtro por defecto cuando terminan de cargar
->>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
         const botonActivo = document.querySelector('.filtro-btn.activo');
         if (botonActivo) {
             window.activarFiltro(botonActivo, 'destacados');
         }
     }
 
-<<<<<<< HEAD
     // --- FUNCIONES GLOBALES DE LA TIENDA ---
     window.activarFiltro = function(botonSeleccionado, categoriaSeleccionada) {
         const botones = document.querySelectorAll('.filtro-btn');
         botones.forEach(boton => boton.classList.remove('activo'));
-=======
-    // --- FUNCIONES GLOBALES (Tienen que tener "window." para funcionar como módulos) ---
-
-    window.activarFiltro = function(botonSeleccionado, categoriaSeleccionada) {
-        const botones = document.querySelectorAll('.filtro-btn');
-        botones.forEach(boton => {
-            boton.classList.remove('activo');
-        });
->>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
         botonSeleccionado.classList.add('activo');
 
         const productos = document.querySelectorAll('.producto-card');
@@ -286,22 +238,10 @@
         const tarjeta = boton.closest('.producto-card, .tarjeta-beige');
         if (!tarjeta) return;
 
-<<<<<<< HEAD
         document.getElementById('modal-titulo').innerText = tarjeta.getAttribute('data-nombre');
         document.getElementById('modal-precio').innerText = tarjeta.getAttribute('data-precio');
         document.getElementById('modal-descripcion').innerText = tarjeta.getAttribute('data-descripcion');
         document.getElementById('modal-img').src = tarjeta.querySelector('img').src;
-=======
-        const titulo = tarjeta.getAttribute('data-nombre');
-        const precio = tarjeta.getAttribute('data-precio');
-        const desc = tarjeta.getAttribute('data-descripcion');
-        const imagen = tarjeta.querySelector('img').src;
-
-        document.getElementById('modal-titulo').innerText = titulo;
-        document.getElementById('modal-precio').innerText = precio;
-        document.getElementById('modal-descripcion').innerText = desc;
-        document.getElementById('modal-img').src = imagen;
->>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
 
         document.getElementById('modal-detalle').style.display = 'flex';
     }
@@ -310,7 +250,6 @@
         document.getElementById('modal-detalle').style.display = 'none';
     }
 
-<<<<<<< HEAD
     // --- LÓGICA DE USUARIOS (REGISTRO) ---
     window.abrirModalLogin = function() {
         document.getElementById('modal-login').style.display = 'flex';
@@ -362,9 +301,6 @@
     }
 
     // 4. Ejecutamos la carga inicial
-=======
-    // 5. Arrancamos la carga al abrir la página
->>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
     cargarProductos();
 
 </script>
