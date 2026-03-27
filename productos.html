@@ -139,6 +139,51 @@
     </div>
 </section>
 
+<!-- Modal de Producto (Oculto por defecto) -->
+<div id="modal-app" class="modal-overlay">
+    <div class="modal-card">
+        
+        <!-- Parte superior: Imagen y botones flotantes -->
+        <div class="modal-header">
+            <button class="btn-cerrar-modal" onclick="cerrarModalApp()">&lt;</button>
+            <button class="btn-favorito">&hearts;</button>
+            <!-- A estos IDs les mandaremos la info con JavaScript -->
+            <img id="img-modal-app" src="" alt="Café" class="img-producto-modal">
+            
+            <div class="contador-flotante">
+                <button class="btn-menos">-</button>
+                <span class="cantidad">1</span>
+                <button class="btn-mas">+</button>
+            </div>
+        </div>
+
+        <!-- Parte inferior: Información -->
+        <div class="modal-info">
+            <div class="titulo-precio">
+                <h2 id="titulo-modal-app">Nombre</h2>
+                <span id="precio-modal-app" class="precio-modal">$0.00</span>
+            </div>
+            
+            <div class="estrellas">⭐⭐⭐⭐⭐</div>
+            
+            <p id="desc-modal-app" class="descripcion-producto">Descripción del café.</p>
+
+            <div class="seccion-tamanos">
+                <h3>Coffee Size</h3>
+                <div class="opciones-tamano">
+                    <button class="tamano-btn">Ch</button>
+                    <button class="tamano-btn activo">M</button>
+                    <button class="tamano-btn">G</button>
+                </div>
+            </div>
+
+            <button class="btn-agregar-bolsa">
+                <i class="fas fa-shopping-cart"></i> Add To Bag
+            </button>
+        </div>
+    </div>
+</div>
+
 <script>
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
@@ -159,8 +204,23 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " activa";
 }
+// Mostrar la pestaña actual y añadir clase activa al botón
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " activa";
+  // <-- Esta es tu línea 206
+
+// AQUÍ PEGAS EL CÓDIGO NUEVO
+function abrirDetalle(tarjeta) {
+    document.getElementById('modal-app').style.display = 'flex';
+}
+
+function cerrarModalApp() {
+    document.getElementById('modal-app').style.display = 'none';
+}
+
+</script> <!-- Esta es tu línea 207 -->
 </script>
-<script src="script.js"></script>
+
 
 </body>
 </html>
