@@ -1150,29 +1150,28 @@ body {
     }
 }
 
-/* El fondo oscuro que cubre la página */
+/* --- ESTILOS DEL MODAL TIPO APP --- */
 .modal-overlay {
-    display: none; /* Oculto por defecto */
+    display: none; /* Oculto hasta que le demos clic a comprar */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Oscurece el fondo */
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: 1000;
     justify-content: center;
     align-items: center;
 }
 
-/* La cajita blanca con la info */
-.modal-content {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    max-width: 600px;
+.modal-card {
+    background-color: #FAFAFA;
     width: 90%;
-    position: relative;
-    animation: aparecer 0.3s ease; /* Un efecto de entrada suave */
+    max-width: 380px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    animation: aparecer 0.3s ease;
 }
 
 @keyframes aparecer {
@@ -1180,10 +1179,117 @@ body {
     to { transform: translateY(0); opacity: 1; }
 }
 
-.close-btn {
+/* Encabezado e Imagen */
+.modal-header {
+    position: relative;
+    width: 100%;
+    height: 250px;
+}
+
+.img-producto-modal {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 0 20px 20px;
+}
+
+.btn-cerrar-modal, .btn-favorito {
     position: absolute;
     top: 15px;
-    right: 20px;
-    font-size: 30px;
+    background: rgba(0,0,0,0.3);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
 }
+
+.btn-cerrar-modal { left: 15px; }
+.btn-favorito { right: 15px; }
+
+/* Contador Flotante */
+.contador-flotante {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.contador-flotante button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Información del producto */
+.modal-info {
+    padding: 30px 20px 20px 20px;
+}
+
+.titulo-precio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.titulo-precio h2 { margin: 0; font-size: 1.4rem; color: #333; }
+.precio-modal { font-weight: bold; font-size: 1.2rem; color: #333; }
+.estrellas { font-size: 0.8rem; margin-bottom: 10px; }
+.descripcion-producto { font-size: 0.85rem; color: #777; line-height: 1.4; margin-bottom: 20px; }
+
+/* Selector de Tamaños */
+.seccion-tamanos h3 {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.opciones-tamano {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tamano-btn {
+    flex: 1;
+    padding: 10px 0;
+    border: 2px solid #EEE;
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #555;
+    transition: 0.3s;
+}
+
+.tamano-btn.activo {
+    border-color: #D67229; 
+    background-color: #D67229;
+    color: white;
+}
+
+/* Botón Añadir a la Bolsa */
+.btn-agregar-bolsa {
+    width: 100%;
+    background-color: #D67229;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-agregar-bolsa:hover { background-color: #b85f20; }
