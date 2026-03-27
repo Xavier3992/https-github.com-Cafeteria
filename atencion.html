@@ -4,39 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atención al Cliente - Grano Urbano</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contacto-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .contacto-titulo {
+            text-align: center;
+            color: #2c1e16;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .info-contacto {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .info-item i {
+            font-size: 2em;
+            color: #c08267;
+            margin-bottom: 10px;
+        }
+        .formulario-contacto {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .formulario-contacto input, .formulario-contacto textarea {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        .formulario-contacto textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+    </style>
 </head>
-<body class="bg-atencion">
+<body>
 
-    <section class="atencion-hero">
-        <div class="atencion-hero-content">
-            <h1>La forma más rápida y segura para disfrutar tus favoritos.</h1>
-            <i class="fas fa-star estrella e1"></i>
-            <i class="fas fa-star estrella e2"></i>
-            <i class="fas fa-star estrella e3"></i>
-        </div>
-    </section>
-
-    <section class="atencion-info-section">
-        <div class="atencion-card">
-            <h2>Atención a clientes</h2>
-            <div class="linea-verde"></div>
-            
-            <h3>Hola ¿En qué podemos ayudarte?</h3>
-            <p>En Grano Urbano nos encanta recibir todas tus dudas, comentarios y observaciones. Queremos asegurarnos de que cada experiencia en nuestra cafetería sea la mejor.</p>
-            
-            <h3>Atención al cliente</h3>
-            <p>Ponemos a tu disposición nuestros medios de contacto en los cuales puedes canalizar todas tus dudas, consultas o sugerencias en un horario de Lunes a Domingo de 9:00 a.m. a 6:00 p.m.</p>
-            
-            <div class="contacto-links">
-                <p><i class="fas fa-phone-alt"></i> 800 288 08 88</p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:tuopinion@granourbano.com.mx">tuopinion@granourbano.com.mx</a></p>
+    <header>
+        <div class="top-bar">
+            <div class="support">
+                <i class="fas fa-headset"></i>
+                <div>
+                    <span>Soporte al cliente</span><br>
+                    <strong>123-456-7890</strong>
+                </div>
             </div>
-            
-            <p class="aviso-privacidad">***Tus datos personales son tratados conforme a nuestro <a href="#">aviso de privacidad</a></p>
+            <div class="logo">
+                <i class="fas fa-coffee"></i>  Grano Urbano
+            </div>
+            <div class="user-actions">
+                <a href="index.html" style="color: #2c1e16; text-decoration: none; font-weight: bold;"><i class="fas fa-home"></i> Volver a la tienda</a>
+            </div>
         </div>
-    </section>
 
+        <nav>
+            <ul>
+                <li><a href="index.html">INICIO</a></li>
+                <li class="dropdown">
+                    <a href="#">MENU</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pasteleria.html">Panadería y pasteleria</a></li>
+                        <li><a href="index.html">Cafe Expreso</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Acerca de nosotros</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="atencion.html">Atencion al cliente</a></li>
+                        <li><a href="trabajo.html">Trabaja con nosotros</a></li>
+                        <li><a href="terminos.html">Terminos y condiciones</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">APLICACION</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="background-color: #f9f6f0; padding-bottom: 50px; padding-top: 20px;">
+        <div class="contacto-container">
+            <h1 class="contacto-titulo">¿En qué podemos ayudarte?</h1>
+            
+            <div class="info-contacto">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Visítanos</h3>
+                    <p>Av. del Café 123, Ciudad</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Llámanos</h3>
+                    <p>123-456-7890</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Escríbenos</h3>
+                    <p>hola@granourbano.com</p>
+                </div>
+            </div>
+
+            <form class="formulario-contacto" id="form-ayuda" onsubmit="enviarMensaje(event)">
+                <h2 style="text-align: center; color: #2c1e16; margin-bottom: 10px;">Envíanos un mensaje</h2>
+                <input type="text" id="nombre-cliente" placeholder="Tu nombre completo" required>
+                <input type="email" id="email-cliente" placeholder="Tu correo electrónico" required>
+                <input type="text" id="asunto-cliente" placeholder="Asunto (ej. Duda sobre mi pedido)" required>
+                <textarea id="mensaje-cliente" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                <button type="submit" class="btn-main" style="border: none; cursor: pointer; font-size: 1.1em;">ENVIAR MENSAJE</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Una función sencillita para simular que el mensaje se envió
+        function enviarMensaje(event) {
+            event.preventDefault(); // Evita que la página se recargue
+            
+            const nombre = document.getElementById('nombre-cliente').value;
+            
+            // Aquí en el futuro podrías conectar esto a Firebase para guardar los mensajes
+            alert(`¡Gracias por escribirnos, ${nombre}! Hemos recibido tu mensaje y te contactaremos pronto al correo proporcionado.`);
+            
+            // Limpiamos el formulario
+            document.getElementById('form-ayuda').reset();
+        }
+    </script>
 </body>
 </html>
