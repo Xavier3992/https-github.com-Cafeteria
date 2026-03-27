@@ -319,7 +319,36 @@
             iconLogout.style.display = 'none';
         }
     });
+const searchInput = document.querySelector('.search-box input');
+    const searchBtn = document.querySelector('.search-box button');
 
+    window.buscarProducto = function() {
+        const textoBusqueda = searchInput.value.toLowerCase(); // Convertimos a minúsculas
+        const productos = document.querySelectorAll('.producto-card');
+        
+        // Quitamos el color de los botones de filtro para no confundir
+        document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('activo'));
+
+        productos.forEach(producto => {
+            const nombreProducto = producto.getAttribute('data-nombre').toLowerCase();
+            
+            if (nombreProducto.includes(textoBusqueda)) {
+                producto.style.display = 'flex';
+            } else {
+                producto.style.display = 'none';
+            }
+        });
+    }
+
+    // Ejecutar búsqueda al darle clic al botón de la lupa
+    searchBtn.addEventListener('click', window.buscarProducto);
+
+    // Ejecutar búsqueda también si el usuario presiona "Enter"
+    searchInput.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter') {
+            window.buscarProducto();
+        }
+    });
     cargarProductos();
 
 </script>
