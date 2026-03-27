@@ -204,8 +204,6 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " activa";
 }
-
-// Función para abrir el modal nuevo y llenarlo con datos
 function abrirDetalle(tarjeta) {
     // Sacamos los datos de la tarjeta a la que le diste clic
     const titulo = tarjeta.getAttribute('data-nombre');
@@ -226,7 +224,7 @@ function abrirDetalle(tarjeta) {
 function cerrarModalApp() {
     document.getElementById('modal-app').style.display = 'none';
 }
-</script>
+
 
 </script>
 
