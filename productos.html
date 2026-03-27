@@ -204,21 +204,30 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " activa";
 }
-// Mostrar la pestaña actual y añadir clase activa al botón
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " activa";
-  // <-- Esta es tu línea 206
 
-// AQUÍ PEGAS EL CÓDIGO NUEVO
+// Función para abrir el modal nuevo y llenarlo con datos
 function abrirDetalle(tarjeta) {
+    // Sacamos los datos de la tarjeta a la que le diste clic
+    const titulo = tarjeta.getAttribute('data-nombre');
+    const precio = tarjeta.getAttribute('data-precio');
+    const desc = tarjeta.getAttribute('data-descripcion');
+    const imagen = tarjeta.querySelector('img').src;
+
+    // Metemos esos datos en el modal
+    document.getElementById('titulo-modal-app').innerText = titulo;
+    document.getElementById('precio-modal-app').innerText = precio;
+    document.getElementById('desc-modal-app').innerText = desc;
+    document.getElementById('img-modal-app').src = imagen;
+
+    // Mostramos la ventana
     document.getElementById('modal-app').style.display = 'flex';
 }
 
 function cerrarModalApp() {
     document.getElementById('modal-app').style.display = 'none';
 }
+</script>
 
-</script> <!-- Esta es tu línea 207 -->
 </script>
 
 
