@@ -223,11 +223,43 @@ function abrirDetalle(tarjeta) {
 
 function cerrarModalApp() {
     document.getElementById('modal-app').style.display = 'none';
+
+    cantidadActual = 1;
+    document.querySelector('.cantidad').innerText = cantidadActual;
 }
+// --- LÓGICA DEL CONTADOR DE CANTIDAD ---
+    let cantidadActual = 1;
+    const btnMenos = document.querySelector('.btn-menos');
+    const btnMas = document.querySelector('.btn-mas');
+    const textoCantidad = document.querySelector('.cantidad');
+
+    btnMas.addEventListener('click', () => {
+        cantidadActual++;
+        textoCantidad.innerText = cantidadActual;
+    });
+
+    btnMenos.addEventListener('click', () => {
+        if (cantidadActual > 1) { // Evitamos que pidan 0 o números negativos
+            cantidadActual--;
+            textoCantidad.innerText = cantidadActual;
+        }
+    });
+
+    // --- LÓGICA DE LOS TAMAÑOS (Ch, M, G) ---
+    const botonesTamano = document.querySelectorAll('.tamano-btn');
+
+    botonesTamano.forEach(boton => {
+        boton.addEventListener('click', function() {
+            // 1. Le quitamos la clase "activo" (el color naranja) a todos
+            botonesTamano.forEach(b => b.classList.remove('activo'));
+            // 2. Se lo ponemos exclusivamente al que acabas de presionar
+            this.classList.add('activo');
+        });
+    });
 
 
 </script>
-
+<script src="script.js"></script>
 
 </body>
 </html>
