@@ -437,12 +437,7 @@ function actualizarCarritoUI() {
     document.getElementById('cart-total').innerText = '$' + total.toFixed(2);
 }
 
-function vaciarCarrito() {
-    carrito = []; // Borramos la memoria
-    actualizarCarritoUI(); // Actualizamos la pantalla (quedará en ceros)
-    const contadorFlotante = document.querySelector('.cart-contador');
-    if(contadorFlotante) contadorFlotante.innerText = '0';
-}
+
 
 </script>
 <script src="script.js"></script>
