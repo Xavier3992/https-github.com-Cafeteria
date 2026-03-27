@@ -235,44 +235,32 @@
         </div>
     </div>
 </div>
+
+
 <div id="modal-carrito" class="modal-overlay">
     <div class="modal-card cart-card">
         
         <div class="cart-header">
             <button class="btn-back-cart" onclick="cerrarCarrito()"><i class="fas fa-arrow-left"></i></button>
             <h2>Cart</h2>
-            <button class="btn-clear-cart"><i class="far fa-trash-alt"></i></button>
+            <button class="btn-clear-cart" onclick="vaciarCarrito()"><i class="far fa-trash-alt"></i></button>
         </div>
 
-        <div class="cart-items-container">
-            
-            <div class="cart-item">
-                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=100&q=80" alt="Espresso">
-                <div class="cart-item-info">
-                    <h4>Espresso</h4>
-                    <span class="cart-item-price">$35.00</span>
-                </div>
-                <div class="cart-item-quantity">
-                    <button>-</button>
-                    <span class="qty-number">2</span>
-                    <button>+</button>
-                </div>
-            </div>
-            
-            <div class="cart-item">
-                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=100&q=80" alt="Latte">
-                <div class="cart-item-info">
-                    <h4>Latte</h4>
-                    <span class="cart-item-price">$50.00</span>
-                </div>
-                <div class="cart-item-quantity">
-                    <button>-</button>
-                    <span class="qty-number">1</span>
-                    <button>+</button>
-                </div>
-            </div>
-
+        <div class="cart-items-container" id="contenedor-items-carrito">
+            <!-- Aquí el JavaScript inyectará los cafés automáticamente -->
         </div>
+
+
+       <div class="cart-items-container" id="contenedor-items-carrito">
+            <!-- Aquí el JavaScript inyectará los cafés automáticamente -->
+        </div>
+
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">$0.00</span>
+            </div>
+            <!-- ... sigue lo demás del tax, delivery, etc ... -->
 
         <div class="cart-summary">
             <div class="summary-row">
@@ -317,87 +305,143 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " activa";
 }
-
-// Variables globales para que la ventana recuerde los números
+// --- VARIABLES GLOBALES ---
 let cantidadActual = 1;
-let precioBase = 0; // Aquí guardaremos cuánto cuesta 1 solo café
+let precioBase = 0;
+let tituloActual = '';
+let imagenActual = '';
+let carrito = []; // Aquí se guarda la memoria de tus compras
 
-// 1. Función para abrir la ventana
+// --- 1. FUNCIÓN PARA ABRIR LA VENTANA DEL PRODUCTO ---
 function abrirDetalle(tarjeta) {
-    const titulo = tarjeta.getAttribute('data-nombre');
-    const precioTexto = tarjeta.getAttribute('data-precio'); // Trae el texto "$35.00"
+    // Guardamos los datos para usarlos después en el carrito
+    tituloActual = tarjeta.getAttribute('data-nombre');
+    const precioTexto = tarjeta.getAttribute('data-precio');
     const desc = tarjeta.getAttribute('data-descripcion');
-    const imagen = tarjeta.querySelector('img').src;
+    imagenActual = tarjeta.querySelector('img').src;
 
-    // Convertimos el texto "$35.00" a un número matemático (35.00)
+    // Matemáticas
     precioBase = parseFloat(precioTexto.replace('$', ''));
-    
-    // Reseteamos la cantidad a 1 siempre que se abre un producto nuevo
     cantidadActual = 1;
     document.querySelector('.cantidad').innerText = cantidadActual;
 
-    // Llenamos la ventana con los datos fijos
-    document.getElementById('titulo-modal-app').innerText = titulo;
+    // Pintamos los datos en la pantalla
+    document.getElementById('titulo-modal-app').innerText = tituloActual;
     document.getElementById('desc-modal-app').innerText = desc;
-    document.getElementById('img-modal-app').src = imagen;
+    document.getElementById('img-modal-app').src = imagenActual;
     
-    // Ejecutamos la suma por primera vez
     actualizarPrecioTotal();
-
-    // Mostramos la ventana
     document.getElementById('modal-app').style.display = 'flex';
 }
 
-// 2. Función maestra que hace la multiplicación
 function actualizarPrecioTotal() {
     let total = precioBase * cantidadActual;
-    // Pintamos el resultado agregándole el signo de pesos y 2 decimales
     document.getElementById('precio-modal-app').innerText = "$" + total.toFixed(2);
 }
 
-// 3. Función para cerrar
 function cerrarModalApp() {
     document.getElementById('modal-app').style.display = 'none';
 }
 
-// --- LÓGICA DE LOS BOTONES + Y - ---
+// --- LÓGICA DE LOS BOTONES + Y - DEL PRODUCTO ---
 const btnMenos = document.querySelector('.btn-menos');
 const btnMas = document.querySelector('.btn-mas');
 const textoCantidad = document.querySelector('.cantidad');
 
-btnMas.addEventListener('click', () => {
-    cantidadActual++;
-    textoCantidad.innerText = cantidadActual;
-    actualizarPrecioTotal(); // Cada que sumas, se actualiza el precio
-});
-
-btnMenos.addEventListener('click', () => {
-    if (cantidadActual > 1) { // Evita que pidan cero cafés
-        cantidadActual--;
+if(btnMas && btnMenos && textoCantidad) { 
+    btnMas.addEventListener('click', () => {
+        cantidadActual++;
         textoCantidad.innerText = cantidadActual;
-        actualizarPrecioTotal(); // Cada que restas, se actualiza el precio
-    }
-});
-
-    // --- LÓGICA DE LOS TAMAÑOS (Ch, M, G) ---
-    const botonesTamano = document.querySelectorAll('.tamano-btn');
-
-    botonesTamano.forEach(boton => {
-        boton.addEventListener('click', function() {
-            // 1. Le quitamos la clase "activo" (el color naranja) a todos
-            botonesTamano.forEach(b => b.classList.remove('activo'));
-            // 2. Se lo ponemos exclusivamente al que acabas de presionar
-            this.classList.add('activo');
-        });
+        actualizarPrecioTotal(); 
     });
 
-    // --- FUNCIONES DEL CARRITO ---
+    btnMenos.addEventListener('click', () => {
+        if (cantidadActual > 1) { 
+            cantidadActual--;
+            textoCantidad.innerText = cantidadActual;
+            actualizarPrecioTotal(); 
+        }
+    });
+}
+
+// --- FUNCIONES DEL CARRITO ---
 function abrirCarrito() {
     document.getElementById('modal-carrito').style.display = 'flex';
 }
 
 function cerrarCarrito() {
     document.getElementById('modal-carrito').style.display = 'none';
+}
+
+function agregarAlCarrito() {
+    // Revisamos si el café ya está en el carrito para solo sumarle
+    const index = carrito.findIndex(item => item.titulo === tituloActual);
+    if(index !== -1) {
+        carrito[index].cantidad += cantidadActual;
+    } else {
+        // Si es nuevo, lo metemos a la lista
+        carrito.push({
+            titulo: tituloActual,
+            precio: precioBase,
+            cantidad: cantidadActual,
+            imagen: imagenActual
+        });
+    }
+
+    // Actualizamos el globito del botón flotante
+    const contadorFlotante = document.querySelector('.cart-contador');
+    if(contadorFlotante) {
+        let totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+        contadorFlotante.innerText = totalItems;
+    }
+
+    // EL SALTO MÁGICO: Cerramos producto, calculamos y abrimos carrito
+    cerrarModalApp();
+    actualizarCarritoUI();
+    abrirCarrito();
+}
+
+function actualizarCarritoUI() {
+    const contenedor = document.getElementById('contenedor-items-carrito');
+    if(!contenedor) return; 
+    contenedor.innerHTML = ''; // Limpiamos lo viejo
+
+    let subtotal = 0;
+
+    // Dibujamos cada café real que agregaste
+    carrito.forEach((item) => {
+        subtotal += item.precio * item.cantidad;
+        contenedor.innerHTML += `
+        <div class="cart-item">
+            <img src="${item.imagen}" alt="${item.titulo}">
+            <div class="cart-item-info">
+                <h4>${item.titulo}</h4>
+                <span class="cart-item-price">$${item.precio.toFixed(2)}</span>
+            </div>
+            <div class="cart-item-quantity">
+                <span class="qty-number">Cant: ${item.cantidad}</span>
+            </div>
+        </div>
+        `;
+    });
+
+    // Matemáticas
+    let delivery = carrito.length > 0 ? 15.00 : 0; // Envío solo si hay cosas
+    let tax = subtotal * 0.16; // 16% IVA
+    let total = subtotal + delivery + tax;
+
+    // Mandamos el dinero a la pantalla
+    document.getElementById('cart-subtotal').innerText = '$' + subtotal.toFixed(2);
+    document.getElementById('cart-delivery').innerText = '$' + delivery.toFixed(2);
+    document.getElementById('cart-tax').innerText = '$' + tax.toFixed(2);
+    document.getElementById('cart-total').innerText = '$' + total.toFixed(2);
+}
+
+function vaciarCarrito() {
+    carrito = []; // Borramos la memoria
+    actualizarCarritoUI(); // Actualizamos la pantalla (quedará en ceros)
+    const contadorFlotante = document.querySelector('.cart-contador');
+    if(contadorFlotante) contadorFlotante.innerText = '0';
 }
 
 </script>
