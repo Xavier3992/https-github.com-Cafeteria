@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Grano Urbano</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="top-bar">
+            <div class="support">
+                <i class="fas fa-headset"></i>
+                <div>
+                    <span>Soporte al cliente</span><br>
+                    <strong>123-456-7890</strong>
+                </div>
+            </div>
+            
+            <div class="logo">
+                <i class="fas fa-coffee"></i>  Grano Urbano
+            </div>
+
+            <div class="user-actions">
+                <i class="far fa-user"></i>
+                <div class="cart">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span>Shopping Cart (0)</span>
+                </div>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#">INICIO</a></li>
+                <li class="dropdown">
+    <a href="#">MENU</a>
+    <ul class="dropdown-menu">
+        <li><a href="pasteleria.html">Panadería y pasteleria</a></li>
+         <li><a href="productos.html">cafe Expreso</a></li>
+    </ul>
+</li>
+        
+     <li class="dropdown">
+    <a href="#">Acerca de nosotros</a>
+    <ul class="dropdown-menu">
+     <li><a href="atencion.html">Atencion al cliente</a></li>
+       <li><a href="trabajo.html">Trabaja con nosotros</a></li>
+        <li><a href="terminos.html">Terminos y condiciones</a></li>
+
+
+    </ul>
+</li>
+                <li><a href="#">APLICACION</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" placeholder="Buscar...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="hero-content">
+                <span>Café Delicioso</span>
+                <h1>100% Natural<br>Café Fresco</h1>
+  <a href="productos.html" class="btn-main" style="text-decoration: none; display: inline-block;">COMPRAR AHORA</a>
+            </div>
+        </section>
+        
+        <section class="features">
+            <div class="feature-item">
+                <i class="fas fa-plane"></i>
+                <p><strong>Envío gratuito a nivel nacional</strong><br>En pedido superior a $150</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-wallet"></i>
+                <p><strong>Contrareembolso</strong><br>100% garantía de devolución</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-gift"></i>
+                <p><strong>Tarjeta regalo especial</strong><br>Ofrece bonos especiales</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-headset"></i>
+                <p><strong>Servicio al cliente 24/7</strong><br>Llámenos 24/7 al 123-456-7890</p>
+            </div>
+        </section>
+
+        <section class="categories-title">
+            <h2>Mejores Categorías</h2>
+        </section>
+        
+        <article class="cat-card" style="background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=500&auto=format&fit=crop');">
+            <div class="overlay"></div>
+            <div class="cat-info">
+                <h3>Panaderia y Reposteria</h3>
+            </div>
+        </article>
+
+        <article class="cat-card" style="background-image: url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=500&auto=format&fit=crop');">
+            <div class="overlay"></div>
+            <div class="cat-info">
+                <h3>cafe expreso </h3>
+            </div>
+          
+        </article>
+
+        <article class="cat-card" style="background-image: url('https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=500&auto=format&fit=crop');">
+            <div class="overlay"></div>
+            <div class="cat-info">
+                <h3>pasteleria </h3>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+
+
+<section class="ofertas-section">
+    <h2 class="ofertas-title">Ofertas del día</h2>
+
+   <div class="filtros-container">
+    <button class="filtro-btn activo" onclick="activarFiltro(this, 'destacados')">Destacados</button>
+    <button class="filtro-btn" onclick="activarFiltro(this, 'recientes')">Más Recientes</button>
+    <button class="filtro-btn" onclick="activarFiltro(this, 'vendidos')">Mas Vendidos</button>
+</div>
+    </div>
+
+    <div class="productos-grid">
+        
+    <div class="producto-card" 
+    data-categoria="destacados recientes"
+    data-nombre="Cafe late"
+            data-precio="4.60"
+            data-descripcion="Delicioso café con un toque de crema batida."
+            onclick="abrirDetalle(this)">
+             <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=300&q=80" alt="Cafe Irish">
+                <span class="descuento-badge">-13%</span>
+            </div>
+            <div class="producto-info">
+                <div class="estrellas">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                </div>
+                <h3 class="producto-nombre">Cafe late</h3>
+                <div class="carrito-icono"><i class="fa-solid fa-basket-shopping"></i></div>
+                <div class="precios">
+                    <span class="precio-actual">$4.60</span>
+                    <span class="precio-viejo">$5.30</span>
+                </div>
+            </div>
+        </div>
+
+            <div class="producto-card"
+            data-categoria="destacados vendidos"
+            data-nombre="Espresso Tonic"
+            data-precio="5.70"
+            data-descripcion="Delicioso café con un toque de crema batida."
+            onclick="abrirDetalle(this)">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=300&q=80" alt="Espresso Tonic">
+                <span class="descuento-badge">-22%</span>
+            </div>
+            <div class="producto-info">
+                <div class="estrellas">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                </div>
+                <h3 class="producto-nombre">Espresso Tonic</h3>
+                <div class="carrito-icono"><i class="fa-solid fa-basket-shopping"></i></div>
+                <div class="precios">
+                    <span class="precio-actual">$5.70</span>
+                    <span class="precio-viejo">$7.30</span>
+                </div>
+            </div>
+        </div>
+
+            <div class="producto-card" 
+            data-categoria="destacados vendidos recientes"
+            data-nombre="Cafe Australiano"
+            data-precio="1.20"
+            data-descripcion="Delicioso café con un toque de crema batida."
+            onclick="abrirDetalle(this)">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&q=80" alt="Cafe Australiano">
+                <span class="descuento-badge">-10%</span>
+            </div>
+            <div class="producto-info">
+                <div class="estrellas">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <h3 class="producto-nombre">Cafe Australiano</h3>
+                <div class="carrito-icono"><i class="fa-solid fa-basket-shopping"></i></div>
+                <div class="precios">
+                    <span class="precio-actual">$1.20</span>
+                    <span class="precio-viejo">$3.30</span>
+                </div>
+            </div>
+        </div>
+
+    <div class="producto-card"
+     data-categoria="destacados vendidos"
+     data-nombre="Cafe Helado"
+     data-precio="$5.60"
+     data-descripcion="Delicioso café con un toque de crema batida."
+     onclick="abrirDetalle(this)">
+     <div class="img-container">
+     <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&q=80" alt="Cafe Helado">
+     <span class="descuento-badge">-20%</span>
+            </div>
+            <div class="producto-info">
+                <div class="estrellas">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                </div>
+                <h3 class="producto-nombre">Cafe Helado</h3>
+                <div class="carrito-icono"><i class="fa-solid fa-basket-shopping"></i></div>
+                <div class="precios">
+                    <span class="precio-actual">$5.60</span>
+                    <span class="precio-viejo">$6.30</span>
+                </div>
+            </div>
+        </div>
+
+         <div class="producto-card"
+          data-categoria="recientes"
+          data-nombre="Irish Coffee"
+          data-precio="$8.60"
+    data-descripcion="Delicioso café con un toque de whiskey irlandés y crema batida."
+     onclick="abrirDetalle(this)">
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&q=80" alt="Cafe Helado">
+                <span class="descuento-badge">-20%</span>
+            </div>
+            <div class="producto-info">
+                <div class="estrellas">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                </div>
+                <h3 class="producto-nombre">Irish Coffee</h3>
+                <div class="carrito-icono"><i class="fa-solid fa-basket-shopping"></i></div>
+                <div class="precios">
+                    <span class="precio-actual">$8.60</span>
+                    <span class="precio-viejo">$6.30</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+<div id="modal-detalle" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="cerrarModal()">&times;</span>
+            <h2 id="modal-titulo"></h2>
+        <img id="modal-img" src="" style="width:100%">
+        <p id="modal-descripcion"></p>
+        <span id="modal-precio"></span>
+    </div>
+</div>
+            
+        
+
+</main>
+</body>
+
+<script>
+// Actualizamos la función para que reciba el botón Y la categoría
+function activarFiltro(botonSeleccionado, categoriaSeleccionada) {
+    
+    // 1. Cambiar la pastilla visual (lo que ya tenías)
+    const botones = document.querySelectorAll('.filtro-btn');
+    botones.forEach(boton => {
+        boton.classList.remove('activo');
+    });
+    botonSeleccionado.classList.add('activo');
+
+    // 2. Filtrar las tarjetas de productos
+    const productos = document.querySelectorAll('.producto-card');
+    
+    productos.forEach(producto => {
+        // Leemos qué categoría tiene este producto en específico
+        const categoriaDelProducto = producto.getAttribute('data-categoria');
+        
+        // Si la categoría coincide, lo mostramos. Si no, lo ocultamos con "none"
+        if (categoriaDelProducto.includes(categoriaSeleccionada)) {
+            producto.style.display = 'flex'; 
+        } else {
+            producto.style.display = 'none'; 
+        }
+    });
+}
+
+function abrirDetalle(boton) {
+    // Buscamos hacia arriba si es 'producto-card' O 'tarjeta-beige'
+    const tarjeta = boton.closest('.producto-card, .tarjeta-beige');
+    
+    if (!tarjeta) return; // Seguridad por si acaso
+
+    const titulo = tarjeta.getAttribute('data-nombre');
+    const precio = tarjeta.getAttribute('data-precio');
+    const desc = tarjeta.getAttribute('data-descripcion');
+    const imagen = tarjeta.querySelector('img').src;
+
+    document.getElementById('modal-titulo').innerText = titulo;
+    document.getElementById('modal-precio').innerText = precio;
+    document.getElementById('modal-descripcion').innerText = desc;
+    document.getElementById('modal-img').src = imagen;
+
+    document.getElementById('modal-detalle').style.display = 'flex';
+}
+
+function cerrarModal() {
+    document.getElementById('modal-detalle').style.display = 'none';
+}
+function cerrarModal() {
+    document.getElementById('modal-detalle').style.display = 'none';
+}
+
+// El filtro automático al cargar la página
+window.onload = function() {
+    const botonActivo = document.querySelector('.filtro-btn.activo');
+    if (botonActivo) {
+        activarFiltro(botonActivo, 'destacados');
+    }
+};
+
+
+</script>
+
+
+
+</html>

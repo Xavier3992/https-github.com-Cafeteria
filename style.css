@@ -1,0 +1,1189 @@
+/* Configuración General */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+
+header { width: 100%; }
+
+/* Top Bar */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: #fff;
+}
+.logo { font-size: 24px; font-weight: bold; letter-spacing: 2px; }
+.support, .user-actions { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+
+/* Navegación */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #d2b48c; /* Color café claro de la imagen */
+    padding: 10px 5%;
+}
+nav ul { display: flex; list-style: none; gap: 20px; }
+nav ul li a { text-decoration: none; color: #333; font-weight: bold; font-size: 14px; }
+/* =========================================
+   ESTILOS DEL MENÚ DESPLEGABLE (MENU)
+   ========================================= */
+
+/* Posición relativa para el <li> padre */
+nav ul .dropdown {
+    position: relative;
+}
+
+/* El cuadro del submenú */
+nav ul .dropdown-menu{
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 100%; /* Aparece justo debajo de MENU */
+    left: 0;
+    background-color: #ffffff; /* Fondo blanco como en tu imagen */
+    min-width: 220px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 0; /* Quitamos padding extra */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    gap: 0; /* Quitamos el gap de 20px de tu ul principal */
+    z-index: 1000; /* Asegura que quede por encima de la imagen Hero */
+}
+
+/* Mostrar el submenú al pasar el mouse por MENU */
+nav ul .dropdown:hover .dropdown-menu {
+    display: flex;
+}
+
+/* Opciones individuales del submenú */
+nav ul .dropdown-menu li {
+    width: 100%;
+}
+
+nav ul .dropdown-menu li a {
+    font-weight: normal; /* Quitamos la negrita */
+    padding: 12px 20px;
+    display: block;
+    border-bottom: 1px solid #f0f0f0; /* Línea gris tenue divisoria */
+}
+
+/* Quitar la línea divisoria a la última opción */
+nav ul .dropdown-menu li:last-child a {
+    border-bottom: none;
+}
+
+
+/* Efecto al pasar el mouse sobre "Panadería", "Café", etc. */
+nav ul .dropdown-menu li a:hover {
+    background-color: #f9f9f9;
+    color: #d2b48c; /* Cambia al color café de tu barra al hacer hover */
+}
+
+.search-box { background: #fff; padding: 5px 10px; border-radius: 20px; display: flex; }
+.search-box input { border: none; outline: none; padding: 5px; }
+.search-box button { border: none; background: none; cursor: pointer; color: #888; }
+
+/* Hero Section */
+.hero {
+    height: 450px;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=2000&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    color: white;
+}
+.hero h1 { font-size: 45px; margin: 10px 0; }
+.btn-main { 
+    background: #d2b48c; 
+    border: none; 
+    padding: 12px 25px; 
+    font-weight: bold; 
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Features */
+.features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 40px 5%;
+    background: #f9f9f9;
+}
+.feature-item { display: flex; align-items: center; gap: 15px; font-size: 12px; }
+.feature-item i { font-size: 25px; color: #8b5a2b; }
+
+.categories-title { text-align: center; padding: 30px; font-size: 20px; }
+
+/* ===============================
+   SECCIÓN: MEJORES CATEGORÍAS 
+   =============================== */
+.best-categories {
+    padding: 50px 5%;
+    text-align: center;
+    background-color: #fdfcf8; /* Color cremita de fondo */
+}
+.best-categories h2 { margin-bottom: 30px; font-size: 28px; color: #333; }
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.cat-card {
+    position: relative;
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* Oscurecer la imagen de fondo para que se lea el texto */
+.cat-card .overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.cat-info {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+.cat-info h3 { font-size: 22px; font-weight: normal; margin-bottom: 5px; }
+.cat-info a { color: white; text-decoration: none; font-size: 14px; }
+.cat-info hr { width: 30px; margin: 5px auto 0; border: 1px solid white; }
+
+
+/* --- SECCIÓN OFERTAS DEL DÍA --- */
+
+.seccion-ofertas {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fdfdfd;
+}
+
+.seccion-ofertas h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* El diseño de la píldora blanca con sombra */
+.ofertas-tabs-container {
+    display: inline-flex;
+    background-color: #ffffff;
+    border-radius: 40px;
+    padding: 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+/* Los botones individuales */
+.ofertas-tab {
+    background: transparent;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 35px;
+    font-weight: bold;
+    color: #999; /* Gris clarito para los inactivos */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+/* El botón seleccionado (Color Café) */
+.ofertas-tab.activa {
+    background-color: #cfb292; /* Color café clarito de tu captura */
+    color: white;
+}
+
+/* --- LA ANIMACIÓN DEL SLIDER --- */
+.ofertas-ventana {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: hidden; /* Esto es lo que corta lo que se sale de la pantalla */
+}
+
+.ofertas-cinta {
+    display: flex;
+    width: 300%; /* Son 3 paneles, así que necesita 3 veces el tamaño */
+    transition: transform 0.5s ease-in-out; /* Esta es la animación suave */
+}
+
+.ofertas-panel {
+    width: 33.3333%; /* Cada panel ocupa 1/3 de la cinta */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+/* Una tarjeta básica de relleno para que veas el efecto */
+.tarjeta-cafe {
+    background: white;
+    width: 250px;
+    height: 300px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* Estilos Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    padding: 40px 20px;
+}
+
+/* Sección Ofertas */
+.ofertas-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.ofertas-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Filtros */
+.filtros-container {
+    display: inline-flex;
+    gap: 10px;
+    background-color: #fcfcfc;
+    padding: 5px;
+    border-radius: 25px;
+    margin-bottom: 40px;
+    border: 1px solid #eee;
+}
+
+.filtro-btn {
+    background: transparent;
+    border: none;
+    padding: 8px 20px;
+    font-size: 14px;
+    color: #888;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.filtro-btn.activo {
+    background-color: #d8b79b; /* Color café claro/arena */
+    color: white;
+}
+
+/* Grid de Productos */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+/* Tarjeta de Producto */
+.producto-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.descuento-badge {
+    position: absolute;
+    bottom: -10px;
+    left: -10px;
+    background-color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 5px;
+}
+
+/* Info del Producto */
+.producto-info {
+    text-align: center;
+}
+
+.estrellas {
+    color: #111;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.producto-nombre {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 5px;
+}
+
+.carrito-icono {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.precios {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.precio-actual {
+    font-weight: bold;
+    color: #b08d70; /* Color del precio actual */
+}
+
+.precio-viejo {
+    text-decoration: line-through;
+    color: #c4b0a0; /* Color del precio tachado */
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 900px) {
+    .productos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .productos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* ===============================
+   SECCIÓN: MEJORES Categorias
+   =============================== */
+.best-products {
+    padding: 20px 5% 60px;
+    text-align: center;
+    background-color: #fdfcf8;
+}
+.best-products h2 { margin-bottom: 20px; font-size: 28px; color: #333; }
+
+/* Pestañas / Tabs */
+.tabs { margin-bottom: 40px; display: inline-flex; gap: 10px; background: white; padding: 5px; border-radius: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.tab { padding: 10px 20px; border: none; background: transparent; cursor: pointer; border-radius: 20px; font-weight: bold; color: #aaa; }
+.tab.active { background: #d2b48c; color: white; }
+
+/* Cuadrícula de productos */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product-img {
+    width: 200px; /* Tamaño uniforme para todas las imágenes */
+    height: 200px;
+    object-fit: cover; /* **Crucial:** asegura que la imagen llene el espacio sin estirarse ni aplastarse */
+    border-radius: 10px; /* Bordes redondeados también para la imagen */
+    margin-bottom: 15px; /* Espacio debajo de la imagen */
+    border: 1px solid #eee;
+
+
+
+/* Etiqueta de descuento */
+.sale-badge {
+    background-color: #c9ab86; /* Color marrón suave de la captura */
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 15px; /* Distancia desde la parte superior */
+    left: 15px; /* Distancia desde la izquierda */
+}
+
+.product-img { width: 100px; height: auto; margin: 20px 0; }
+.stars { color: #d2b48c; font-size: 12px; margin-bottom: 10px; }
+.product-card h4 { font-size: 16px; margin-bottom: 20px; color: #333; }
+
+/* Parte inferior de la tarjeta (Botón y Precio) */
+.card-bottom { display: flex; justify-content: space-between; align-items: center; }
+.btn-cart { background: transparent; border: 2px solid #e0d5c1; border-radius: 50%; width: 35px; height: 35px; color: #d2b48c; cursor: pointer; transition: 0.3s; }
+.btn-cart:hover { background: #d2b48c; color: white; }
+
+.price strong { font-size: 18px; color: #333; }
+.price del { font-size: 12px; color: #aaa; margin-left: 5px; } /* Texto tachado semántico */
+
+}
+
+/* =========================================
+   NUEVA INTERFAZ (COPIA EXACTA DE LA IMAGEN)
+   ========================================= */
+
+/* --- 1. BANNER SUPERPUESTO --- */
+.hero-superpuesto {
+    /* Fondo oscuro desenfocado de atrás */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/373639/pexels-photo-373639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-interior {
+    /* Cuadro central claro con las donas */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1551030173-122aabc4489c?auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    max-width: 950px;
+    height: 400px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.hero-top-info {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.8);
+}
+
+.hero-textos h2 {
+    font-size: 36px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.hero-textos p {
+    font-size: 13px;
+    max-width: 700px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.8);
+}
+
+.flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: rgba(255,255,255,0.6);
+    cursor: pointer;
+}
+.flecha-izq { left: -40px; } /* Sale del cuadro central */
+.flecha-der { right: -40px; }
+
+/* --- 2. TARJETAS BEIGE --- */
+.tarjetas-container {
+    max-width: 950px;
+    margin: -40px auto 40px auto; /* El margen negativo lo sube un poco hacia el banner */
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.tarjetas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Mantiene tus 4 columnas */
+    gap: 20px;
+    padding: 20px;
+}
+.tarjeta-beige {
+   background-color: #bfa58a;
+    padding: 15px; /* Reduje el relleno de 25px a 15px para hacerla compacta */
+    border-radius: 8px; /* Bordes redondeados suaves */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Empuja el botón siempre al fondo */
+    text-align: center;
+    color: white;
+    height: 100%; /* Mantiene todas las tarjetas del mismo tamaño */
+    box-sizing: border-box;
+}
+.tarjeta-beige img {
+    width: 100%;
+    height: 130px; /* Reducimos la altura de la foto de 200px a 130px */
+    object-fit: cover; /* Evita que la foto se deforme */
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.tarjeta-beige h3 {
+    font-size: 18px; /* Título ligeramente más pequeño */
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.tarjeta-beige p {
+    font-size: 12px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    flex-grow: 1; /* Hace que el texto rellene el espacio y alinee los botones */
+}
+
+.tarjeta-beige a {
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 8px 20px;
+    text-transform: uppercase;
+    border-radius: 4px; /* Un toque redondeado al botón */
+    transition: 0.3s; /* Efecto suave al pasar el mouse */;
+}
+.tarjeta-beige a:hover {
+    background-color: white;
+    color: #bfa58a;
+}
+
+/* --- 3. PESTAÑAS Y HORARIOS --- */
+.info-footer-container {
+    max-width: 950px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+    background-color: #fffaf0; /* Fondo muy clarito de esa sección */
+    padding: 30px;
+}
+
+.info-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Lado izq más grande que el derecho */
+    gap: 30px;
+}
+
+/* Pestañas */
+.pestanas-header {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.pestanas-header span {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 13px;
+    color: #888;
+    cursor: pointer;
+}
+.pestanas-header span {
+    cursor: pointer; /* Importante para que parezca botón */
+    transition: 0.3s;
+}
+
+.pestanas-header span:hover {
+    color: #b0957b; /* Color café al pasar el mouse */
+}
+
+.pestanas-header span.activa {
+    background-color: white;
+    color: #333;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    margin-bottom: -1px; /* Para que tape la línea de abajo */
+}
+
+.pestanas-body p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+/* Horarios */
+.horarios-box {
+    background-color: #2b2e34; /* Gris muy oscuro */
+    color: white;
+    padding: 25px;
+}
+
+.horarios-box h3 {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+.horarios-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.horarios-box li {
+    font-size: 12px;
+    margin-bottom: 15px;
+    color: rgba(255,255,255,0.7);
+}
+
+.horarios-box li span {
+    color: white;
+    display: block;
+    margin-top: 5px;
+}
+
+
+
+/* Esto fuerza a que las tarjetas mantengan su estructura */
+.tarjetas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Esto asegura las 4 columnas */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Esto arregla la deformación de la imagen */
+.tarjeta-beige img {
+    width: 100%;       /* Ocupa el ancho de la tarjeta */
+    height: 200px;     /* Ajusta esta altura a tu gusto para que sea cuadrada/rectángular */
+    object-fit: cover; /* ¡ESTA ES LA CLAVE! Corta la imagen para que no se estire */
+    border-radius: 8px;
+    display: block;
+}
+
+.tarjeta-beige {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* Asegúrate de que no tenga un width: 100vw o algo raro */
+}
+/* --- ESTILOS PANADERÍA (INTERFAZ PRO) --- */
+
+/* Banner Principal */
+.pan-hero {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                url('https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=1500&auto=format&fit=crop');
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.pan-hero-overlay h1 {
+    font-size: 50px;
+    font-family: 'Playfair Display', serif; /* O una similar cursiva/elegante */
+    margin-top: 10px;
+}
+
+.sub-title {
+    letter-spacing: 4px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/* Categorías Circulares */
+.pan-categories {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.pan-categories h2, .new-products-section h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.circle-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.circle-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.img-frame {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #f3e5d8; /* Color beige clarito */
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.circle-item span {
+    font-weight: 600;
+    color: #444;
+}
+
+/* Tarjetas de Productos */
+.new-products-section {
+    padding: 60px 10%;
+    background-color: #fcfcfc;
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.pan-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.pan-card:hover {
+    transform: translateY(-10px);
+}
+
+.pan-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.pan-card h4 { font-size: 18px; margin-bottom: 10px; }
+
+.price {
+    color: #b0957b;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.btn-add {
+    background-color: #b0957b;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-add:hover {
+    background-color: #8e735b;
+}
+
+/* --- ESTILOS ATENCIÓN AL CLIENTE --- */
+
+.bg-atencion {
+    background-color: #f7f7f7; /* Fondo gris claro detrás de la tarjeta */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Banner Hero Verde */
+.atencion-hero {
+    background-color: #1e3932; /* Verde oscuro elegante */
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.atencion-hero h1 {
+    color: white;
+    font-size: 42px;
+    max-width: 650px;
+    line-height: 1.3;
+    font-family: 'Georgia', serif;
+    z-index: 2;
+    position: relative;
+}
+
+/* Estrellas decorativas de fondo */
+.estrella {
+    color: #d4e09b; /* Color dorado/verdoso claro */
+    position: absolute;
+    z-index: 1;
+    opacity: 0.8;
+}
+.e1 { top: 25%; left: 15%; font-size: 35px; }
+.e2 { bottom: 20%; left: 35%; font-size: 45px; }
+.e3 { top: 50%; right: 20%; font-size: 30px; }
+
+/* Tarjeta Blanca Central */
+.atencion-info-section {
+    display: flex;
+    justify-content: center;
+    margin-top: -80px; /* Esto hace que la tarjeta se encime al fondo verde */
+    padding: 0 20px 80px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.atencion-card {
+    background: white;
+    width: 100%;
+    max-width: 900px;
+    padding: 60px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: center;
+    color: #333;
+}
+
+.atencion-card h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.linea-verde {
+    width: 70px;
+    height: 4px;
+    background-color: #00704a; /* Verde acento de la línea */
+    margin: 0 auto 40px auto;
+}
+
+.atencion-card h3 {
+    font-size: 16px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.atencion-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* Sección de Contacto (Teléfono y Correo) */
+.contacto-links {
+    margin-top: 40px;
+    text-align: left;
+}
+
+.contacto-links p {
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.contacto-links i {
+    margin-right: 12px;
+    color: #333;
+}
+
+.contacto-links a {
+    color: #00704a;
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+/* Aviso de Privacidad */
+.aviso-privacidad {
+    margin-top: 50px !important;
+    font-size: 12px !important;
+    color: #777 !important;
+}
+
+.aviso-privacidad a {
+    color: #00704a;
+    text-decoration: underline;
+}
+/* --- ESTILOS TRABAJA CON NOSOTROS --- */
+
+.bg-trabajo {
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-bottom: 50px;
+}
+
+/* Encabezado Verde Oscuro */
+.trabajo-header {
+    background-color: #1e3932; /* Verde oscuro estilo franquicia */
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 40px;
+}
+
+.trabajo-header h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+/* Contenedor Principal */
+.trabajo-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Espacio entre cada bloque */
+    padding: 0 20px;
+}
+
+/* Tarjetas (Bloques) */
+.bloque-card {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 300px;
+}
+
+.bloque-light { background-color: #d4e9e2; color: #1e3932; } /* Verde clarito */
+.bloque-dark { background-color: #1e3932; color: white; } /* Verde oscuro */
+
+/* Cajas internas de los bloques */
+.bloque-texto {
+    flex: 1;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bloque-texto h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+.bloque-texto p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.text-center { align-items: center; text-align: center; }
+
+.bloque-img {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.bloque-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- EL TRUCO DE LAS CURVAS --- */
+/* Redondeamos drásticamente una esquina de la imagen para que se coma el color de fondo */
+.curva-izq {
+    border-top-left-radius: 120px;
+    border-bottom-left-radius: 20px;
+}
+
+.curva-der {
+    border-top-right-radius: 120px;
+    border-bottom-right-radius: 20px;
+}
+
+/* Botones */
+.btn-outline-dark, .btn-outline-light {
+    background: transparent;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-outline-dark {
+    border: 2px solid #1e3932;
+    color: #1e3932;
+}
+
+.btn-outline-dark:hover { background-color: #1e3932; color: white; }
+
+.btn-outline-light {
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-outline-light:hover { background-color: white; color: #1e3932; }
+
+/* Hacerlo Responsivo (Móviles) */
+@media (max-width: 768px) {
+    .bloque-card { flex-direction: column !important; }
+    .curva-izq, .curva-der { border-radius: 0; height: 250px; }
+}
+/* --- ESTILOS TÉRMINOS Y CONDICIONES --- */
+
+.bg-terminos {
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* Barra verde superior */
+.terminos-header {
+    background-color: #1e3932; /* El mismo verde corporativo */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-bottom: 50px;
+}
+
+.terminos-header h1 {
+    font-size: 20px;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Contenedor de la Cuadrícula */
+.terminos-grid {
+    max-width: 900px; /* Mantiene la cuadrícula centrada y con márgenes amplios a los lados */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Crea exactamente 3 columnas del mismo tamaño */
+    gap: 30px; /* Espacio entre cada tarjeta */
+    padding: 0 20px 60px 20px;
+}
+
+/* Tarjeta individual */
+.promo-card {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Imágenes cuadradas */
+.promo-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Fuerza a la imagen a ser un cuadrado perfecto */
+    object-fit: cover;
+}
+
+/* Textos de la tarjeta */
+.promo-texto {
+    padding: 15px 0;
+    text-align: left;
+}
+
+.promo-texto p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #333;
+    margin: 0 0 15px 0;
+}
+
+.promo-texto .fecha {
+    font-size: 11px;
+    color: #888;
+    display: block;
+}
+
+/* Responsividad para Móviles */
+@media (max-width: 768px) {
+    .terminos-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .terminos-grid {
+        grid-template-columns: 1fr; /* 1 columna en celulares */
+    }
+}
+
+/* El fondo oscuro que cubre la página */
+.modal-overlay {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Oscurece el fondo */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* La cajita blanca con la info */
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    animation: aparecer 0.3s ease; /* Un efecto de entrada suave */
+}
+
+@keyframes aparecer {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
