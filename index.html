@@ -24,7 +24,7 @@
             </div>
 
             <div class="user-actions">
-                <i class="far fa-user"></i>
+                <i class="far fa-user" onclick="abrirModalLogin()" style="cursor: pointer;" title="Crear Cuenta"></i>
                 <div class="cart">
                     <i class="fas fa-shopping-basket"></i>
                     <span>Shopping Cart (0)</span>
@@ -61,7 +61,6 @@
     </header>
 
     <main>
-
         <section class="hero">
             <div class="hero-content">
                 <span>Café Delicioso</span>
@@ -113,8 +112,13 @@
                 <h3>pasteleria </h3>
             </div>
         </article>
+    </main>
 
+<<<<<<< HEAD
+    <section class="ofertas-section">
+=======
     </main> <section class="ofertas-section">
+>>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
         <h2 class="ofertas-title">Ofertas del día</h2>
 
         <div class="filtros-container">
@@ -124,8 +128,12 @@
         </div>
 
         <div class="productos-grid">
+<<<<<<< HEAD
+            </div>
+=======
             
         </div>
+>>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
     </section>
 
     <div id="modal-detalle" class="modal-overlay">
@@ -137,13 +145,38 @@
             <span id="modal-precio"></span>
         </div>
     </div>
+<<<<<<< HEAD
+
+    <div id="modal-login" class="modal-overlay">
+        <div class="modal-content" style="max-width: 400px; text-align: center;">
+            <span class="close-btn" onclick="cerrarModalLogin()">&times;</span>
+            <h2>Crear Cuenta</h2>
+            <p>Únete a Grano Urbano</p>
+            
+            <input type="email" id="email-reg" placeholder="Tu correo electrónico" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
+            <input type="password" id="pass-reg" placeholder="Contraseña (mín. 6 letras)" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px;">
+            
+            <button onclick="registrarUsuario()" class="btn-main" style="width: 100%; border: none; cursor: pointer; margin-top: 15px;">REGISTRARSE</button>
+            
+            <p id="mensaje-auth" style="margin-top: 15px; font-weight: bold;"></p>
+        </div>
+    </div>
+=======
+>>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
             
 </body>
 
 <script type="module">
+<<<<<<< HEAD
+    // 1. Importamos Firebase Firestore y Authentication
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+=======
     // 1. Importamos Firebase
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
     import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+>>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
 
     // 2. Tus llaves de acceso
     const firebaseConfig = {
@@ -155,6 +188,18 @@
       appId: "1:176171507437:web:3f316b318a60dffd0476e4"
     };
 
+<<<<<<< HEAD
+    // 3. Inicializamos los servicios
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app); // Iniciamos el motor de usuarios
+
+    // --- LÓGICA DE PRODUCTOS ---
+    async function cargarProductos() {
+        const querySnapshot = await getDocs(collection(db, "productos"));
+        const contenedor = document.querySelector('.productos-grid');
+        contenedor.innerHTML = ""; 
+=======
     // 3. Inicializamos
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
@@ -164,11 +209,15 @@
         const querySnapshot = await getDocs(collection(db, "productos"));
         const contenedor = document.querySelector('.productos-grid');
         contenedor.innerHTML = ""; // Limpiamos "Cargando..." si hubiera
+>>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
 
         querySnapshot.forEach((doc) => {
             const cafe = doc.data();
             
+<<<<<<< HEAD
+=======
             // Creamos la tarjeta respetando exactamente tu diseño CSS
+>>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
             const tarjetaHTML = `
             <div class="producto-card" 
                  data-categoria="${cafe.categoria || 'destacados'}" 
@@ -196,13 +245,22 @@
             contenedor.innerHTML += tarjetaHTML;
         });
 
+<<<<<<< HEAD
+=======
         // Aplicamos el filtro por defecto cuando terminan de cargar
+>>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
         const botonActivo = document.querySelector('.filtro-btn.activo');
         if (botonActivo) {
             window.activarFiltro(botonActivo, 'destacados');
         }
     }
 
+<<<<<<< HEAD
+    // --- FUNCIONES GLOBALES DE LA TIENDA ---
+    window.activarFiltro = function(botonSeleccionado, categoriaSeleccionada) {
+        const botones = document.querySelectorAll('.filtro-btn');
+        botones.forEach(boton => boton.classList.remove('activo'));
+=======
     // --- FUNCIONES GLOBALES (Tienen que tener "window." para funcionar como módulos) ---
 
     window.activarFiltro = function(botonSeleccionado, categoriaSeleccionada) {
@@ -210,6 +268,7 @@
         botones.forEach(boton => {
             boton.classList.remove('activo');
         });
+>>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
         botonSeleccionado.classList.add('activo');
 
         const productos = document.querySelectorAll('.producto-card');
@@ -227,6 +286,12 @@
         const tarjeta = boton.closest('.producto-card, .tarjeta-beige');
         if (!tarjeta) return;
 
+<<<<<<< HEAD
+        document.getElementById('modal-titulo').innerText = tarjeta.getAttribute('data-nombre');
+        document.getElementById('modal-precio').innerText = tarjeta.getAttribute('data-precio');
+        document.getElementById('modal-descripcion').innerText = tarjeta.getAttribute('data-descripcion');
+        document.getElementById('modal-img').src = tarjeta.querySelector('img').src;
+=======
         const titulo = tarjeta.getAttribute('data-nombre');
         const precio = tarjeta.getAttribute('data-precio');
         const desc = tarjeta.getAttribute('data-descripcion');
@@ -236,6 +301,7 @@
         document.getElementById('modal-precio').innerText = precio;
         document.getElementById('modal-descripcion').innerText = desc;
         document.getElementById('modal-img').src = imagen;
+>>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
 
         document.getElementById('modal-detalle').style.display = 'flex';
     }
@@ -244,7 +310,61 @@
         document.getElementById('modal-detalle').style.display = 'none';
     }
 
+<<<<<<< HEAD
+    // --- LÓGICA DE USUARIOS (REGISTRO) ---
+    window.abrirModalLogin = function() {
+        document.getElementById('modal-login').style.display = 'flex';
+    }
+
+    window.cerrarModalLogin = function() {
+        document.getElementById('modal-login').style.display = 'none';
+        document.getElementById('mensaje-auth').innerText = ""; // Limpia el mensaje si lo cierran
+    }
+
+    window.registrarUsuario = async function() {
+        const email = document.getElementById('email-reg').value;
+        const password = document.getElementById('pass-reg').value;
+        const mensaje = document.getElementById('mensaje-auth');
+
+        // Validación básica
+        if(email === "" || password === "") {
+            mensaje.style.color = "red";
+            mensaje.innerText = "Por favor, llena todos los campos.";
+            return;
+        }
+
+        try {
+            // Creamos el usuario en la base de datos de Google
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+            
+            mensaje.style.color = "green";
+            mensaje.innerText = "¡Cuenta creada! Bienvenido, " + user.email;
+            
+            // Cerramos el modal automáticamente después de 2 segundos
+            setTimeout(() => {
+                cerrarModalLogin();
+            }, 2000);
+
+        } catch (error) {
+            mensaje.style.color = "red";
+            // Traducimos los errores más comunes de Firebase
+            if(error.code === 'auth/email-already-in-use') {
+                mensaje.innerText = "Ese correo ya está registrado.";
+            } else if(error.code === 'auth/weak-password') {
+                mensaje.innerText = "La contraseña debe tener al menos 6 letras/números.";
+            } else if(error.code === 'auth/invalid-email') {
+                mensaje.innerText = "Escribe un correo válido (ej. juan@correo.com).";
+            } else {
+                mensaje.innerText = "Error: " + error.message;
+            }
+        }
+    }
+
+    // 4. Ejecutamos la carga inicial
+=======
     // 5. Arrancamos la carga al abrir la página
+>>>>>>> d4f1677ed622a532b7ee3431035900c253912de8
     cargarProductos();
 
 </script>
