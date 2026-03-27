@@ -7,6 +7,53 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    /* ARREGLO DE EMERGENCIA PARA MÓVIL */
+    
+    /* 1. Evita que la barra de arriba se amontone */
+    .top-bar {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        padding: 10px !important;
+    }
+
+    /* 2. Alinea los iconos (Soporte, Logo, Carrito) */
+    .support, .logo, .user-actions {
+        flex: 1 1 120px !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    /* 3. Arregla los iconos de abajo (Envío, Garantía, etc.) */
+    .features {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 20px !important;
+    }
+
+    .feature-item {
+        flex: 1 1 140px !important;
+        max-width: 180px !important;
+        text-align: center !important;
+    }
+
+    /* 4. Centra el menú para que no se salga de la pantalla */
+    nav ul {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        padding: 0 !important;
+    }
+
+    nav ul li {
+        margin: 5px 10px !important;
+    }
+</style>
 <body>
 
     <header>
@@ -40,11 +87,11 @@
             <ul>
                 <li><a href="#">INICIO</a></li>
                 <li class="dropdown">
-                    <a href="#">MENU</a>
-                    <ul class="dropdown-menu"></ul>
-                        <li><a href="productos.html">cafe Expreso</a></li>
-                    </ul>
-                </li>
+    <a href="#">MENU</a>
+    <ul class="dropdown-menu">
+        <li><a href="productos.html">cafe Expreso</a></li>
+    </ul>
+</li>
         
                 <li class="dropdown">
                     <a href="#">Acerca de nosotros</a>
