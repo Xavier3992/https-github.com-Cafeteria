@@ -10,6 +10,7 @@
 <body>
 
 <header>
+    <!-- Barra superior blanca -->
     <div class="top-bar">
         <div class="support">
             <i class="fas fa-headset"></i>
@@ -22,40 +23,38 @@
         </div>
 
         <div class="user-actions">
-            <div class="search-box">
-                <input type="text" placeholder="Buscar café...">
-                <button title="Buscar"><i class="fas fa-search"></i></button>
-            </div>
-            
             <i class="far fa-user" id="icon-user-login" onclick="abrirModalAuth()"></i>
             <span id="user-greeting" style="display:none;"></span>
             <i class="fas fa-sign-out-alt" id="icon-logout" style="display:none;" onclick="cerrarSesion()"></i>
-
+            
             <div class="cart">
                 <i class="fas fa-shopping-basket"></i>
-                <span>Carrito (0)</span>
+                <span>Shopping Cart (0)</span>
             </div>
         </div>
     </div>
 
+    <!-- Barra de menú (Beige en tu imagen) -->
     <nav>
-        <ul>
-            <li><a href="#">INICIO</a></li>
-            <li class="dropdown">
-                <a href="#">MENÚ</a>
-                <ul class="dropdown-menu">
-                    <li><a href="productos.html">Café Expreso</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#">NOSOTROS</a>
-                <ul class="dropdown-menu">
-                    <li><a href="atencion.html">Atención al cliente</a></li>
-                    <li><a href="trabajo.html">Trabaja con nosotros</a></li>
-                    <li><a href="terminos.html">Términos y condiciones</a></li>
-                </ul>
-            </li>
-        </ul>
+        <div class="nav-content">
+            <ul>
+                <li><a href="#">INICIO</a></li>
+                <li class="dropdown">
+                    <a href="#">MENU</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="productos.html">cafe Expreso</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Acerca de nosotros</a></li>
+                <li><a href="#">APLICACION</a></li>
+            </ul>
+            
+            <!-- Buscador implementado según tu imagen -->
+            <div class="search-box">
+                <input type="text" placeholder="Buscar...">
+                <button onclick="buscarProducto()"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
     </nav>
 </header>
 
@@ -67,74 +66,83 @@
             <a href="productos.html" class="btn-main">COMPRAR AHORA</a>
         </div>
     </section>
-
+    
     <section class="features">
         <div class="feature-item">
             <i class="fas fa-plane"></i>
-            <p><strong>Envío gratuito</strong><br>En pedidos superiores a $150</p>
+            <p><strong>Envío gratuito a nivel nacional</strong><br>En pedido superior a $150</p>
         </div>
         <div class="feature-item">
             <i class="fas fa-wallet"></i>
-            <p><strong>Pago Seguro</strong><br>Garantía de devolución</p>
+            <p><strong>Contrareembolso</strong><br>100% garantía de devolución</p>
         </div>
         <div class="feature-item">
             <i class="fas fa-gift"></i>
-            <p><strong>Tarjetas Regalo</strong><br>Bonos especiales</p>
+            <p><strong>Tarjeta regalo especial</strong><br>Ofrece bonos especiales</p>
         </div>
         <div class="feature-item">
             <i class="fas fa-headset"></i>
-            <p><strong>Soporte 24/7</strong><br>Atención inmediata</p>
+            <p><strong>Servicio al cliente 24/7</strong><br>Llámenos 24/7 al 123-456-7890</p>
         </div>
     </section>
 
-    <section class="categories-container">
-        <h2 class="section-title">Mejores Categorías</h2>
-        <div class="categories-grid">
+    <!-- Sección de Categorías -->
+    <section class="categories-section">
+        <h2>Mejores Categorías</h2>
+        <div class="categories-container">
             <article class="cat-card" style="background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=500&auto=format&fit=crop');">
                 <div class="overlay"></div>
-                <div class="cat-info"><h3>Panadería</h3></div>
+                <div class="cat-info"><h3>Panaderia y Reposteria</h3></div>
             </article>
+
             <article class="cat-card" style="background-image: url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=500&auto=format&fit=crop');">
                 <div class="overlay"></div>
-                <div class="cat-info"><h3>Café Expreso</h3></div>
+                <div class="cat-info"><h3>cafe expreso </h3></div>
             </article>
+
             <article class="cat-card" style="background-image: url('https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=500&auto=format&fit=crop');">
                 <div class="overlay"></div>
-                <div class="cat-info"><h3>Pastelería</h3></div>
+                <div class="cat-info"><h3>pasteleria </h3></div>
             </article>
         </div>
     </section>
 
+    <!-- Sección de Productos (AQUÍ VAN LOS PRODUCTOS QUE SE TAPABAN) -->
     <section class="ofertas-section">
         <h2 class="ofertas-title">Ofertas del día</h2>
+
         <div class="filtros-container">
             <button class="filtro-btn activo" onclick="activarFiltro(this, 'destacados')">Destacados</button>
             <button class="filtro-btn" onclick="activarFiltro(this, 'recientes')">Más Recientes</button>
-            <button class="filtro-btn" onclick="activarFiltro(this, 'vendidos')">Más Vendidos</button>
+            <button class="filtro-btn" onclick="activarFiltro(this, 'vendidos')">Mas Vendidos</button>
         </div>
-        <div class="productos-grid"></div>
+
+        <div class="productos-grid">
+            <!-- Los productos de Firebase se cargan aquí -->
+        </div>
     </section>
 </main>
 
+<!-- Modales -->
 <div id="modal-detalle" class="modal-overlay">
     <div class="modal-content">
         <span class="close-btn" onclick="cerrarModal()">&times;</span>
         <h2 id="modal-titulo"></h2>
-        <img id="modal-img" src="" alt="Producto">
+        <img id="modal-img" src="" style="width:100%">
         <p id="modal-descripcion"></p>
         <span id="modal-precio"></span>
     </div>
 </div>
 
 <div id="modal-auth" class="modal-overlay">
-    <div class="modal-content auth-modal">
+    <div class="modal-content" style="max-width: 400px; text-align: center;">
         <span class="close-btn" onclick="cerrarModalAuth()">&times;</span>
         <h2 id="auth-titulo">Iniciar Sesión</h2>
         <p id="auth-subtitulo">Bienvenido de vuelta</p>
-        <input type="email" id="email-auth" placeholder="Tu correo electrónico">
-        <input type="password" id="pass-auth" placeholder="Contraseña">
+        <input type="email" id="email-auth" placeholder="Tu correo electrónico" class="input-auth">
+        <input type="password" id="pass-auth" placeholder="Contraseña" class="input-auth">
         <button id="btn-auth-action" onclick="procesarAuth()" class="btn-main">ENTRAR</button>
-        <p class="auth-switch">
+        <p style="margin-top: 15px; font-size: 14px;">
             <span id="auth-switch-text">¿No tienes cuenta?</span> 
             <a href="javascript:void(0)" onclick="cambiarModoAuth()" id="auth-switch-link">Regístrate aquí</a>
         </p>
@@ -146,182 +154,124 @@
 </body>
 
 
+
 <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBnJPl8MVEzM46p-Su3xJC3IzYA28p0kYk",
-    authDomain: "grano-urbano.firebaseapp.com",
-    projectId: "grano-urbano",
-    storageBucket: "grano-urbano.firebasestorage.app",
-    messagingSenderId: "176171507437",
-    appId: "1:176171507437:web:3f316b318a60dffd0476e4"
+  apiKey: "AIzaSyBnJPl8MVEzM46p-Su3xJC3IzYA28p0kYk",
+  authDomain: "grano-urbano.firebaseapp.com",
+  projectId: "grano-urbano",
+  storageBucket: "grano-urbano.firebasestorage.app",
+  messagingSenderId: "176171507437",
+  appId: "1:176171507437:web:3f316b318a60dffd0476e4"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const auth = getAuth(app);
+const auth = getAuth(app); 
 
-// --- CARGAR PRODUCTOS ---
+// CARGAR PRODUCTOS
 async function cargarProductos() {
+    const querySnapshot = await getDocs(collection(db, "productos"));
     const contenedor = document.querySelector('.productos-grid');
-    if (!contenedor) return;
+    if(!contenedor) return;
+    contenedor.innerHTML = ""; 
 
-    try {
-        const querySnapshot = await getDocs(collection(db, "productos"));
-        contenedor.innerHTML = ""; 
-
-        querySnapshot.forEach((doc) => {
-            const cafe = doc.data();
-            const tarjetaHTML = `
-            <div class="producto-card" 
-                 data-categoria="${cafe.categoria || 'destacados'}" 
-                 data-nombre="${cafe.nombre}" 
-                 data-precio="${cafe.precio}" 
-                 data-descripcion="${cafe.descripcion}" 
-                 onclick="abrirDetalle(this)">
-                <div class="img-container">
-                    <img src="${cafe.imagen}" alt="${cafe.nombre}">
-                    <span class="descuento-badge">-15%</span>
-                </div>
-                <div class="producto-info">
-                    <div class="estrellas">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                    <h3 class="producto-nombre">${cafe.nombre}</h3>
-                    <div class="precios"><span class="precio-actual">${cafe.precio}</span></div>
-                    <div class="carrito-icono"><i class="fa-solid fa-basket-shopping"></i></div>
-                </div>
-            </div>`;
-            contenedor.innerHTML += tarjetaHTML;
-        });
-
-        // Activar filtro inicial
-        const botonActivo = document.querySelector('.filtro-btn.activo');
-        if (botonActivo) activarFiltro(botonActivo, 'destacados');
-    } catch (error) {
-        console.error("Error cargando productos:", error);
-    }
+    querySnapshot.forEach((doc) => {
+        const cafe = doc.data();
+        const tarjetaHTML = `
+        <div class="producto-card" data-categoria="${cafe.categoria || 'destacados'}" data-nombre="${cafe.nombre}" data-precio="${cafe.precio}" data-descripcion="${cafe.descripcion}" onclick="abrirDetalle(this)">
+             <div class="img-container">
+                <img src="${cafe.imagen}" alt="${cafe.nombre}">
+                <span class="descuento-badge">-15%</span>
+            </div>
+            <div class="producto-info">
+                <div class="estrellas"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                <h3 class="producto-nombre">${cafe.nombre}</h3>
+                <div class="carrito-icono"><i class="fa-solid fa-basket-shopping"></i></div>
+                <div class="precios"><span class="precio-actual">${cafe.precio}</span></div>
+            </div>
+        </div>`;
+        contenedor.innerHTML += tarjetaHTML;
+    });
 }
 
-// --- FILTROS ---
+// FILTROS
 window.activarFiltro = function(botonSeleccionado, categoriaSeleccionada) {
     document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('activo'));
     botonSeleccionado.classList.add('activo');
-    
     document.querySelectorAll('.producto-card').forEach(p => {
         const cat = p.getAttribute('data-categoria');
         p.style.display = (cat && cat.includes(categoriaSeleccionada)) ? 'flex' : 'none';
     });
-};
+}
 
-// --- MODALES ---
-window.abrirDetalle = function(elemento) {
-    document.getElementById('modal-titulo').innerText = elemento.getAttribute('data-nombre');
-    document.getElementById('modal-precio').innerText = elemento.getAttribute('data-precio');
-    document.getElementById('modal-descripcion').innerText = elemento.getAttribute('data-descripcion');
-    document.getElementById('modal-img').src = elemento.querySelector('img').src;
+// BUSCADOR
+window.buscarProducto = function() {
+    const input = document.querySelector('.search-box input');
+    const textoBusqueda = input.value.toLowerCase();
+    const productos = document.querySelectorAll('.producto-card');
+    
+    productos.forEach(producto => {
+        const nombre = producto.getAttribute('data-nombre').toLowerCase();
+        producto.style.display = nombre.includes(textoBusqueda) ? 'flex' : 'none';
+    });
+}
+
+// MODALES
+window.abrirDetalle = function(tarjeta) {
+    document.getElementById('modal-titulo').innerText = tarjeta.getAttribute('data-nombre');
+    document.getElementById('modal-precio').innerText = tarjeta.getAttribute('data-precio');
+    document.getElementById('modal-descripcion').innerText = tarjeta.getAttribute('data-descripcion');
+    document.getElementById('modal-img').src = tarjeta.querySelector('img').src;
     document.getElementById('modal-detalle').style.display = 'flex';
-};
+}
 
 window.cerrarModal = () => document.getElementById('modal-detalle').style.display = 'none';
 
-// --- AUTHENTICATION ---
+// AUTHENTICATION
 let esModoRegistro = false;
-
 window.abrirModalAuth = () => document.getElementById('modal-auth').style.display = 'flex';
-window.cerrarModalAuth = () => {
-    document.getElementById('modal-auth').style.display = 'none';
-    document.getElementById('mensaje-auth').innerText = "";
-};
+window.cerrarModalAuth = () => document.getElementById('modal-auth').style.display = 'none';
 
 window.cambiarModoAuth = function() {
     esModoRegistro = !esModoRegistro;
-    const config = esModoRegistro ? {
-        titulo: "Crear Cuenta", sub: "Únete a Grano Urbano", btn: "REGISTRARSE", 
-        switchT: "¿Ya tienes cuenta?", switchL: "Inicia sesión aquí"
-    } : {
-        titulo: "Iniciar Sesión", sub: "Bienvenido de vuelta", btn: "ENTRAR", 
-        switchT: "¿No tienes cuenta?", switchL: "Regístrate aquí"
-    };
-
-    document.getElementById('auth-titulo').innerText = config.titulo;
-    document.getElementById('auth-subtitulo').innerText = config.sub;
-    document.getElementById('btn-auth-action').innerText = config.btn;
-    document.getElementById('auth-switch-text').innerText = config.switchT;
-    document.getElementById('auth-switch-link').innerText = config.switchL;
-};
+    document.getElementById('auth-titulo').innerText = esModoRegistro ? "Crear Cuenta" : "Iniciar Sesión";
+    document.getElementById('btn-auth-action').innerText = esModoRegistro ? "REGISTRARSE" : "ENTRAR";
+}
 
 window.procesarAuth = async function() {
     const email = document.getElementById('email-auth').value;
     const password = document.getElementById('pass-auth').value;
     const mensaje = document.getElementById('mensaje-auth');
-
-    if(!email || !password) {
-        mensaje.innerText = "Por favor, llena todos los campos.";
-        mensaje.style.color = "red";
-        return;
-    }
-
     try {
-        if(esModoRegistro) {
-            await createUserWithEmailAndPassword(auth, email, password);
-            mensaje.innerText = "¡Cuenta creada!";
-        } else {
-            await signInWithEmailAndPassword(auth, email, password);
-            mensaje.innerText = "¡Bienvenido!";
-        }
-        mensaje.style.color = "green";
-        setTimeout(cerrarModalAuth, 1500);
+        if(esModoRegistro) await createUserWithEmailAndPassword(auth, email, password);
+        else await signInWithEmailAndPassword(auth, email, password);
+        cerrarModalAuth();
     } catch (error) {
-        mensaje.style.color = "red";
-        const errores = {
-            'auth/invalid-credential': "Correo o contraseña incorrectos.",
-            'auth/email-already-in-use': "El correo ya está registrado.",
-            'auth/weak-password': "Contraseña muy corta (mín. 6 caracteres)."
-        };
-        mensaje.innerText = errores[error.code] || "Error: " + error.code;
+        mensaje.innerText = "Error: " + error.code;
     }
-};
+}
 
 window.cerrarSesion = () => signOut(auth);
 
-// --- OBSERVAR ESTADO DE USUARIO ---
 onAuthStateChanged(auth, (user) => {
     const iconLogin = document.getElementById('icon-user-login');
     const userGreeting = document.getElementById('user-greeting');
     const iconLogout = document.getElementById('icon-logout');
-
     if (user) {
-        if(iconLogin) iconLogin.style.display = 'none';
+        iconLogin.style.display = 'none';
         userGreeting.style.display = 'inline';
         userGreeting.innerText = "Hola, " + user.email.split('@')[0];
         iconLogout.style.display = 'inline';
     } else {
-        if(iconLogin) iconLogin.style.display = 'inline';
+        iconLogin.style.display = 'inline';
         userGreeting.style.display = 'none';
         iconLogout.style.display = 'none';
     }
-});
-
-// --- BÚSQUEDA ---
-window.buscarProducto = function() {
-    const texto = document.querySelector('.search-box input').value.toLowerCase();
-    document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('activo'));
-    
-    document.querySelectorAll('.producto-card').forEach(p => {
-        const nombre = p.getAttribute('data-nombre').toLowerCase();
-        p.style.display = nombre.includes(texto) ? 'flex' : 'none';
-    });
-};
-
-document.querySelector('.search-box button').addEventListener('click', buscarProducto);
-document.querySelector('.search-box input').addEventListener('keyup', (e) => {
-    if (e.key === 'Enter') buscarProducto();
 });
 
 cargarProductos();
