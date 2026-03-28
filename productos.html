@@ -6,564 +6,260 @@
     <title>Tienda - Grano Urbano</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-
-   <style>
-        /* AJUSTES PARA QUE LAS TARJETAS SE VEAN PERFECTAS EN EL CELULAR */
-        .tarjetas-grid {
-            display: grid;
-            /* Crea columnas de al menos 160px. En celular pone 2 columnas automáticamente */
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .tarjeta-beige {
-            background-color: #d2b48c; /* Color beige de tu diseño */
-            border-radius: 15px;
-            padding: 15px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-            cursor: pointer;
-            min-height: 300px;
-        }
-
-        .tarjeta-beige:hover {
-            transform: translateY(-5px);
-        }
-
-        /* AJUSTE DE IMAGEN: Para que no se estire como en tu foto */
-        .tarjeta-beige img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover; /* Recorta la imagen para que llene el espacio sin deformarse */
-            border-radius: 10px;
-            margin-bottom: 12px;
-        }
-
-        .tarjeta-beige h3 {
-            font-size: 1.1rem;
-            margin: 5px 0;
-            color: #fff;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .tarjeta-beige p {
-            font-size: 0.85rem;
-            color: #f1f1f1;
-            margin-bottom: 15px;
-            /* Limita a 2 líneas de texto para que todas las tarjetas midan lo mismo */
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;  
-            overflow: hidden;
-        }
-
-        .tarjeta-beige a {
-            background-color: transparent;
-            border: 1px solid #fff;
-            color: #fff;
-            padding: 8px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-    </style>
-</style>
 </head>
 <body style="background-color: #f8f9fa; margin: 0;">
 
+    <!-- Hero Section -->
     <section class="hero-superpuesto">
         <div class="hero-interior">
             <div class="hero-top-info"> Soporte al cliente &nbsp;&nbsp;123-456-7890</div>
-            
             <div class="hero-textos">
                 <h2>El arte de pausar el mundo en una taza.</h2>
-                <p>En Grano Urbano, cada taza es el resultado de una búsqueda incansable por la perfección. Nuestra selección celebra la diversidad de los mejores granos de altura, tostados artesanalmente para liberar notas profundas de chocolate, frutos rojos y caramelo..</p>
+                <p>En Grano Urbano, cada taza es el resultado de una búsqueda incansable por la perfección...</p>
             </div>
-
             <div class="flecha flecha-izq">&lt;</div>
             <div class="flecha flecha-der">&gt;</div>
         </div>
     </section>
 
-   <section class="tarjetas-container">
-    <div class="tarjetas-grid">
-
-     <div class="tarjeta-beige" 
-     onclick="abrirDetalle(this)"
-     data-nombre="Espresso"
-      data-precio="$35.00"
-      data-descripcion="Una carga pura de café intenso y delicioso.">
-     <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=300&q=80" alt="Cafe">
-            <h3>Espresso</h3>
-            <p>Una carga pura de café...</p>
-            <a href="#">COMPRAR</a>
-        </div>
-
-
-     <div class="tarjeta-beige" 
-     onclick="abrirDetalle(this)"
-      data-nombre="Espresso" ...>   
+    <!-- Contenedor de Productos -->
+    <section class="tarjetas-container">
+        <div class="tarjetas-grid" id="contenedor-productos">
+            <!-- Aquí Firebase inyectará los productos. He dejado uno de ejemplo abajo -->
+            <div class="tarjeta-beige" onclick="abrirDetalle(this)" data-nombre="Espresso" data-precio="$35.00" data-descripcion="Una carga pura de café intenso y delicioso.">
                 <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=300&q=80" alt="Cafe">
-                <h3>Americano</h3>
-                <p>Diluido con agua caliente para un sabor más suave.</p>
-                <a href="#">COMPRAR</a>
-            </div>
-    
-            <div class="tarjeta-beige"
-                onclick="abrirDetalle(this)"
-                data-nombre="Macchiato"
-                data-precio="$45.00"
-                data-descripcion="Un espresso con una 'mancha' de espuma de leche.">
-                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=300&q=80" alt="Cafe">
-                <h3>Macchiato</h3>
-                <p>Un espresso con una "mancha" de espuma de leche.</p>
-                <a href="javascript:void(0)">COMPRAR</a>
-            </div>
-            <div class="tarjeta-beige"
-            onclick="abrirDetalle(this)"
-            data-nombre="Cortado"
-            data-precio="$42.00"
-            data-descripcion="Partes iguales de espresso y leche vaporizada.">
-                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
-                <h3>Cortado</h3>
-                <p>Partes iguales de espresso y leche vaporizada.</p>
-                <a href="javascript:void(0)">COMPRAR</a>
-            </div>
-            <div class="tarjeta-beige"
-            onclick="abrirDetalle(this)"
-            data-nombre="Latte"
-            data-precio="$50.00"
-            data-descripcion="Más leche que el cappuccino, con una capa muy fina de espuma">
-                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
-                <h3>Latte</h3>
-                <p>Más leche que el cappuccino, con una capa muy fina de espuma</p>
-                <a href="javascript:void(0)">COMPRAR</a>
-            </div>
-            <div class="tarjeta-beige"
-            onclick="abrirDetalle(this)"
-            data-nombre="Cappuccinor"
-            data-precio="$55.00"
-            data-descripcion="Equilibrio perfecto entre espresso, leche vaporizada y una capa densa de espuma.">
-                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
-                <h3>Cappuccinor</h3>
-                <p>Equilibrio perfecto entre espresso, leche vaporizada y una capa densa de espuma.t</p>
-                <a href="javascript:void(0)">COMPRAR</a>
-            </div>
-            <div class="tarjeta-beige"
-            onclick="abrirDetalle(this)"
-            data-nombre="Flat White"
-            data-precio="$52.00"
-            data-descripcion="Similar al latte pero con una textura de leche más sedosa y doble carga de espresso">
-                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
-                <h3>Flat White</h3>
-                <p>Similar al latte pero con una textura de leche más sedosa y doble carga de espresso</p>
-                <a href="javascript:void(0)">COMPRAR</a>
-            </div>
-            <div class="tarjeta-beige"
-            onclick="abrirDetalle(this)"
-            data-nombre="Moka" 
-            data-precio="$60.00"
-            data-descripcion="La mezcla perfecta de espresso, chocolate oscuro o blanco y leche.">
-                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
-                <h3>Moka</h3>
-                <p>La mezcla perfecta de espresso, chocolate oscuro o blanco y leche.</p>
-                <a href="javascript:void(0)">COMPRAR</a>
-            </div>
-            <div class="tarjeta-beige"
-            onclick="abrirDetalle(this)" 
-            data-nombre="Iced Americano" 
-            data-precio="$45.00"
-            data-descripcion="Las versiones clásicas servidas sobre cubos de hielo.">
-                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
-                <h3>Iced Americano</h3>
-                <p>Las versiones clásicas servidas 
-                sobre cubos de hielo.</p>
-                <a href="#">COMPRAR</a>
-            </div>
-            <div class="tarjeta-beige"
-            onclick="abrirDetalle(this)" 
-    data-nombre="Frappés" 
-    data-precio="$65.00" 
-    data-descripcion="Bebidas granizadas, con base de café, leche y algún jarabe, decoradas con crema batida.">
-                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
-                <h3>Frappés</h3>
-                <p>Bebidas granizadas,con base de café, leche y algún jarabe, decoradas con crema batida.</p>
-                <a href="javascript:void(0)">COMPRAR</a>
-            </div>
-            <div class="tarjeta-beige"
-            onclick="abrirDetalle(this)" 
-    data-nombre="Cold Brew" 
-    data-precio="$55.00" 
-    data-descripcion="Café macerado en agua fría. Es muy suave, poco ácido y con mucha cafeína.">
-                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
-                <h3>Cold Brew</h3>
-                <p>Café macerado en agua fría. Es muy suave, poco ácido y con mucha cafeína.</p>
-                <a href="javascript:void(0)">COMPRAR</a>
-            </div>
-            <div class="tarjeta-beige"
-            onclick="abrirDetalle(this)" 
-    data-nombre="Affogato" 
-    data-precio="$70.00" 
-    data-descripcion="Una bola de helado de vainilla ahogada con un shot de espresso caliente.">
-                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=300&q=80" alt="Cafe">
-                <h3>Affogato</h3>
-                <p>Una bola de helado de vainilla "ahogada" con un shot de espresso caliente.</p>
+                <h3>Espresso</h3>
+                <p>Una carga pura de café...</p>
                 <a href="javascript:void(0)">COMPRAR</a>
             </div>
         </div>
     </section>
 
-    <!-- Botón flotante temporal para el carrito -->
-<div class="cart-flotante" onclick="abrirCarrito()">
-    <i class="fas fa-shopping-basket"></i>
-    <span class="cart-contador">0</span>
-</div>
-
-    <section class="info-footer-container">
-    <div class="info-footer-grid">
-        
-        <div class="pestanas-area">
-            <div class="pestanas-header">
-                <span class="tab-link activa" onclick="openTab(event, 'origen')">Nuestro Origen</span>
-                <span class="tab-link" onclick="openTab(event, 'metodos')">Métodos</span>
-                <span class="tab-link" onclick="openTab(event, 'saludable')">Opciones</span>
-            </div>
-
-            <div id="origen" class="tab-content" style="display: block;">
-                <p>En <strong>Grano Urbano</strong>, seleccionamos granos de  altura de las mejores fincas.Nuestro tostado artesanal resalta notas naturales de chocolate y frutos rojos, garantizando una taza fresca y con cuerpo en cada visita.</p>
-            </div>
-
-            <div id="metodos" class="tab-content" style="display: none;">
-                <p>Experimenta el café en su máxima expresión. Ofrecemos extracciones manuales en <strong>Prensa Francesa, Chemex y V60</strong>. Cada método resalta matices únicos, desde la intensidad del cuerpo hasta la claridad de la acidez.</p>
-            </div>
-
-            <div id="saludable" class="tab-content" style="display: none;">
-                <p>Pensamos en tu bienestar. Personaliza cualquier bebida con nuestras <strong>leches vegetales</strong> (Almendra, Avena o Coco) y endulzantes naturales. Disfruta del sabor premium sin comprometer tu estilo de vida.</p>
-            </div>
-        </div>
-
-        <div class="horarios-box">
-            <h3>Opening Hours</h3>
-            <ul>
-                <li>Lunes - Viernes <br><span>7:00 - 20:00</span></li>
-                <li>Sábado <br><span>8:00 - 21:00</span></li>
-                <li>Domingo <br><span>9:00 - 18:00</span></li>
-            </ul>
-        </div>
-
-
+    <!-- Botón flotante del carrito -->
+    <div class="cart-flotante" onclick="abrirCarrito()">
+        <i class="fas fa-shopping-basket"></i>
+        <span class="cart-contador" id="cart-contador">0</span>
     </div>
-</section>
 
-<!-- Modal de Producto (Oculto por defecto) -->
-<div id="modal-app" class="modal-overlay">
-    <div class="modal-card">
-        
-        <!-- Parte superior: Imagen y botones flotantes -->
-        <div class="modal-header">
-            <button class="btn-cerrar-modal" onclick="cerrarModalApp()">&lt;</button>
-            <button class="btn-favorito">&hearts;</button>
-            <!-- A estos IDs les mandaremos la info con JavaScript -->
-            <img id="img-modal-app" src="" alt="Café" class="img-producto-modal">
-            
-            <div class="contador-flotante">
-                <button class="btn-menos">-</button>
-                <span class="cantidad">1</span>
-                <button class="btn-mas">+</button>
+    <!-- Pestañas de información -->
+    <section class="info-footer-container">
+        <div class="info-footer-grid">
+            <div class="pestanas-area">
+                <div class="pestanas-header">
+                    <span class="tab-link activa" onclick="openTab(event, 'origen')">Nuestro Origen</span>
+                    <span class="tab-link" onclick="openTab(event, 'metodos')">Métodos</span>
+                    <span class="tab-link" onclick="openTab(event, 'saludable')">Opciones</span>
+                </div>
+                <div id="origen" class="tab-content" style="display: block;"><p>Seleccionamos granos de altura...</p></div>
+                <div id="metodos" class="tab-content" style="display: none;"><p>Extracciones manuales...</p></div>
+                <div id="saludable" class="tab-content" style="display: none;"><p>Leches vegetales y más...</p></div>
+            </div>
+            <div class="horarios-box">
+                <h3>Opening Hours</h3>
+                <ul>
+                    <li>Lunes - Viernes <br><span>7:00 - 20:00</span></li>
+                    <li>Sábado <br><span>8:00 - 21:00</span></li>
+                </ul>
             </div>
         </div>
+    </section>
 
-        <!-- Parte inferior: Información -->
-        <div class="modal-info">
-            <div class="titulo-precio">
-                <h2 id="titulo-modal-app">Nombre</h2>
-                <span id="precio-modal-app" class="precio-modal">$0.00</span>
-            </div>
-            
-            <div class="estrellas">⭐⭐⭐⭐⭐</div>
-            
-            <p id="desc-modal-app" class="descripcion-producto">Descripción del café.</p>
-
-            <div class="seccion-tamanos">
-                <h3>Coffee Size</h3>
-                <div class="opciones-tamano">
-                    <button class="tamano-btn">vaso normal </button>
+    <!-- MODAL DETALLE PRODUCTO (Segunda interfaz) -->
+    <div id="modal-app" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <button class="btn-cerrar-modal" onclick="cerrarModalApp()">&lt;</button>
+                <button class="btn-favorito">&hearts;</button>
+                <img id="img-modal-app" src="" alt="Café" class="img-producto-modal">
+                <div class="contador-flotante">
+                    <button class="btn-menos" onclick="ajustarCantidad(-1)">-</button>
+                    <span class="cantidad" id="cant-modal">1</span>
+                    <button class="btn-mas" onclick="ajustarCantidad(1)">+</button>
                 </div>
             </div>
-
-            <button class="btn-agregar-bolsa" onclick="agregarAlCarrito()">
-    <i class="fas fa-shopping-cart"></i> Add To Bag
-</button>
+            <div class="modal-info">
+                <div class="titulo-precio">
+                    <h2 id="titulo-modal-app">Nombre</h2>
+                    <span id="precio-modal-app" class="precio-modal">$0.00</span>
+                </div>
+                <div class="estrellas">⭐⭐⭐⭐⭐</div>
+                <p id="desc-modal-app" class="descripcion-producto"></p>
+                <div class="seccion-tamanos">
+                    <h3>Coffee Size</h3>
+                    <div class="opciones-tamano"><button class="tamano-btn">vaso normal</button></div>
+                </div>
+                <button class="btn-agregar-bolsa" onclick="agregarAlCarrito()">
+                    <i class="fas fa-shopping-cart"></i> Add To Bag
+                </button>
+            </div>
         </div>
     </div>
-</div>
 
+    <!-- MODAL CARRITO (Tercera interfaz) -->
+    <div id="modal-carrito" class="modal-overlay">
+        <div class="modal-card cart-card">
+            <div class="cart-header">
+                <button class="btn-back-cart" onclick="cerrarCarrito()"><i class="fas fa-arrow-left"></i></button>
+                <h2>Cart</h2>
+                <button class="btn-clear-cart" onclick="vaciarCarrito()"><i class="far fa-trash-alt"></i></button>
+            </div>
+            
+            <div class="cart-items-container" id="contenedor-items-carrito">
+                <!-- Los items se cargan aquí con JS -->
+            </div>
 
-<div id="modal-carrito" class="modal-overlay">
-    <div class="modal-card cart-card">
-        
-        <div class="cart-header">
-            <button class="btn-back-cart" onclick="cerrarCarrito()"><i class="fas fa-arrow-left"></i></button>
-            <h2>Cart</h2>
-            <button class="btn-clear-cart" onclick="vaciarCarrito()"><i class="far fa-trash-alt"></i></button>
+            <div class="cart-summary">
+                <div class="summary-row"><span>Subtotal</span> <span id="cart-subtotal">$0.00</span></div>
+                <div class="summary-row"><span>Delivery Fee</span> <span id="cart-delivery">$0.00</span></div>
+                <div class="summary-row"><span>Tax</span> <span id="cart-tax">$0.00</span></div>
+                <div class="summary-row total-row"><span>TOTAL</span> <span id="cart-total">$0.00</span></div>
+            </div>
+            <button class="btn-pay-now">PAY NOW</button>
         </div>
-
-        <div class="cart-items-container" id="contenedor-items-carrito">
-            <!-- Aquí el JavaScript inyectará los cafés automáticamente -->
-        </div>
-
-
-       <div class="cart-items-container" id="contenedor-items-carrito">
-            <!-- Aquí el JavaScript inyectará los cafés automáticamente -->
-        </div>
-
-        <div class="cart-summary">
-            <div class="summary-row">
-                <span>Subtotal</span>
-                <span id="cart-subtotal">$0.00</span>
-            </div>
-            <!-- ... sigue lo demás del tax, delivery, etc ... -->
-
-        <div class="cart-summary">
-            <div class="summary-row">
-                <span>Subtotal</span>
-                <span>$120.00</span>
-            </div>
-            <div class="summary-row">
-                <span>Delivery Fee</span>
-                <span>$15.00</span>
-            </div>
-            <div class="summary-row">
-                <span>Tax</span>
-                <span>$4.00</span>
-            </div>
-            <div class="summary-row total-row">
-                <span>TOTAL</span>
-                <span>$139.00</span>
-            </div>
-        </div>
-
-        <button class="btn-pay-now">PAY NOW</button>
-
     </div>
-</div>
+
+</body>
 <script type="module">
-    // 1. Importamos Firebase desde la web (CDNs)
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
-    // 2. Tu configuración real
-    const firebaseConfig = {
-        apiKey: "AIzaSyBnJPl8MVEzM46p-Su3xJC3IzYA28p0kYk",
-        authDomain: "grano-urbano.firebaseapp.com",
-        projectId: "grano-urbano",
-        storageBucket: "grano-urbano.firebasestorage.app",
-        messagingSenderId: "176171507437",
-        appId: "1:176171507437:web:3f316b318a60dffd0476e4"
-    };
+const firebaseConfig = {
+    apiKey: "AIzaSyBnJPl8MVEzM46p-Su3xJC3IzYA28p0kYk",
+    authDomain: "grano-urbano.firebaseapp.com",
+    projectId: "grano-urbano",
+    storageBucket: "grano-urbano.firebasestorage.app",
+    messagingSenderId: "176171507437",
+    appId: "1:176171507437:web:3f316b318a60dffd0476e4"
+};
 
-    // 3. Inicializamos[cite: 1]
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-    // 4. Función para cargar los cafés[cite: 1]
-    async function cargarProductos() {
-        const contenedor = document.getElementById('contenedor-productos');
-        try {
-            const querySnapshot = await getDocs(collection(db, "productos"));
-            let htmlFinal = '';
+// VARIABLES DEL ESTADO
+let carrito = [];
+let productoSeleccionado = { nombre: '', precio: 0, imagen: '', cantidad: 1 };
 
-            querySnapshot.forEach((doc) => {
-                const cafe = doc.data();
-                htmlFinal += `
-                    <div class="tarjeta-beige" 
-                         onclick="abrirDetalle(this)" 
-                         data-nombre="${cafe.nombre}" 
-                         data-precio="$${cafe.precio}" 
-                         data-descripcion="${cafe.descripcion}">
-                        <img src="${cafe.imagen}" alt="${cafe.nombre}">
-                        <h3>${cafe.nombre}</h3>
-                        <p>${cafe.descripcion}</p>
-                        <a href="javascript:void(0)">COMPRAR</a>
-                    </div>
-                `;
-            });
-            contenedor.innerHTML = htmlFinal;
-        } catch (error) {
-            console.error("Error:", error);
-        }
-    }
-    cargarProductos();
-</script>
-
-<script>
-
-    
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    
-    // Esconder todos los contenidos
-    tabcontent = document.getElementsByClassName("tab-content");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    // Quitar la clase "activa" de todos los botones
-    tablinks = document.getElementsByClassName("tab-link");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" activa", "");
-    }
-
-    // Mostrar la pestaña actual y añadir clase activa al botón
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " activa";
+// CARGAR PRODUCTOS DESDE FIREBASE
+async function cargarProductos() {
+    const contenedor = document.getElementById('contenedor-productos');
+    if (!contenedor) return;
+    try {
+        const querySnapshot = await getDocs(collection(db, "productos"));
+        contenedor.innerHTML = "";
+        querySnapshot.forEach((doc) => {
+            const cafe = doc.data();
+            contenedor.innerHTML += `
+                <div class="tarjeta-beige" onclick="abrirDetalle(this)" data-nombre="${cafe.nombre}" data-precio="$${cafe.precio}" data-descripcion="${cafe.descripcion}">
+                    <img src="${cafe.imagen}" alt="${cafe.nombre}">
+                    <h3>${cafe.nombre}</h3>
+                    <p>${cafe.descripcion}</p>
+                    <a href="javascript:void(0)">COMPRAR</a>
+                </div>`;
+        });
+    } catch (e) { console.error("Error Firebase:", e); }
 }
-// --- VARIABLES GLOBALES ---
-let cantidadActual = 1;
-let precioBase = 0;
-let tituloActual = '';
-let imagenActual = '';
-let carrito = []; // Aquí se guarda la memoria de tus compras
 
-// --- 1. FUNCIÓN PARA ABRIR LA VENTANA DEL PRODUCTO ---
-function abrirDetalle(tarjeta) {
-    // Guardamos los datos para usarlos después en el carrito
-    tituloActual = tarjeta.getAttribute('data-nombre');
-    const precioTexto = tarjeta.getAttribute('data-precio');
-    const desc = tarjeta.getAttribute('data-descripcion');
-    imagenActual = tarjeta.querySelector('img').src;
+// INTERFAZ DE DETALLE (MODAL PRODUCTO)
+window.abrirDetalle = function(tarjeta) {
+    productoSeleccionado.nombre = tarjeta.getAttribute('data-nombre');
+    productoSeleccionado.precio = parseFloat(tarjeta.getAttribute('data-precio').replace('$', ''));
+    productoSeleccionado.descripcion = tarjeta.getAttribute('data-descripcion');
+    productoSeleccionado.imagen = tarjeta.querySelector('img').src;
+    productoSeleccionado.cantidad = 1;
 
-    // Matemáticas
-    precioBase = parseFloat(precioTexto.replace('$', ''));
-    cantidadActual = 1;
-    document.querySelector('.cantidad').innerText = cantidadActual;
-
-    // Pintamos los datos en la pantalla
-    document.getElementById('titulo-modal-app').innerText = tituloActual;
-    document.getElementById('desc-modal-app').innerText = desc;
-    document.getElementById('img-modal-app').src = imagenActual;
+    document.getElementById('titulo-modal-app').innerText = productoSeleccionado.nombre;
+    document.getElementById('desc-modal-app').innerText = productoSeleccionado.descripcion;
+    document.getElementById('img-modal-app').src = productoSeleccionado.imagen;
+    document.getElementById('cant-modal').innerText = productoSeleccionado.cantidad;
     
-    actualizarPrecioTotal();
+    actualizarPrecioModal();
     document.getElementById('modal-app').style.display = 'flex';
 }
 
-function actualizarPrecioTotal() {
-    let total = precioBase * cantidadActual;
-    document.getElementById('precio-modal-app').innerText = "$" + total.toFixed(2);
+window.ajustarCantidad = function(valor) {
+    productoSeleccionado.cantidad = Math.max(1, productoSeleccionado.cantidad + valor);
+    document.getElementById('cant-modal').innerText = productoSeleccionado.cantidad;
+    actualizarPrecioModal();
 }
 
-function cerrarModalApp() {
-    document.getElementById('modal-app').style.display = 'none';
+function actualizarPrecioModal() {
+    const total = productoSeleccionado.precio * productoSeleccionado.cantidad;
+    document.getElementById('precio-modal-app').innerText = `$${total.toFixed(2)}`;
 }
 
-// --- LÓGICA DE LOS BOTONES + Y - DEL PRODUCTO ---
-const btnMenos = document.querySelector('.btn-menos');
-const btnMas = document.querySelector('.btn-mas');
-const textoCantidad = document.querySelector('.cantidad');
+window.cerrarModalApp = () => document.getElementById('modal-app').style.display = 'none';
 
-if(btnMas && btnMenos && textoCantidad) { 
-    btnMas.addEventListener('click', () => {
-        cantidadActual++;
-        textoCantidad.innerText = cantidadActual;
-        actualizarPrecioTotal(); 
-    });
-
-    btnMenos.addEventListener('click', () => {
-        if (cantidadActual > 1) { 
-            cantidadActual--;
-            textoCantidad.innerText = cantidadActual;
-            actualizarPrecioTotal(); 
-        }
-    });
-}
-
-// --- FUNCIONES DEL CARRITO ---
-function abrirCarrito() {
-    document.getElementById('modal-carrito').style.display = 'flex';
-}
-
-function cerrarCarrito() {
-    document.getElementById('modal-carrito').style.display = 'none';
-}
-
-function agregarAlCarrito() {
-    // Revisamos si el café ya está en el carrito para solo sumarle
-    const index = carrito.findIndex(item => item.titulo === tituloActual);
-    if(index !== -1) {
-        carrito[index].cantidad += cantidadActual;
+// LÓGICA DEL CARRITO (ELIMINAR Y AGREGAR)
+window.agregarAlCarrito = function() {
+    const index = carrito.findIndex(item => item.nombre === productoSeleccionado.nombre);
+    if (index !== -1) {
+        carrito[index].cantidad += productoSeleccionado.cantidad;
     } else {
-        // Si es nuevo, lo metemos a la lista
-        carrito.push({
-            titulo: tituloActual,
-            precio: precioBase,
-            cantidad: cantidadActual,
-            imagen: imagenActual
-        });
+        carrito.push({ ...productoSeleccionado });
     }
-
-    // Actualizamos el globito del botón flotante
-    const contadorFlotante = document.querySelector('.cart-contador');
-    if(contadorFlotante) {
-        let totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
-        contadorFlotante.innerText = totalItems;
-    }
-
-    // EL SALTO MÁGICO: Cerramos producto, calculamos y abrimos carrito
     cerrarModalApp();
     actualizarCarritoUI();
     abrirCarrito();
 }
 
-function actualizarCarritoUI() {
-    const contenedor = document.getElementById('contenedor-items-carrito');
-    if(!contenedor) return; 
-    contenedor.innerHTML = ''; // Limpiamos lo viejo
-
-    let subtotal = 0;
-
-    // Dibujamos cada café real que agregaste
-    carrito.forEach((item) => {
-        subtotal += item.precio * item.cantidad;
-        contenedor.innerHTML += `
-        <div class="cart-item">
-            <img src="${item.imagen}" alt="${item.titulo}">
-            <div class="cart-item-info">
-                <h4>${item.titulo}</h4>
-                <span class="cart-item-price">$${item.precio.toFixed(2)}</span>
-            </div>
-            <div class="cart-item-quantity">
-                <span class="qty-number">Cant: ${item.cantidad}</span>
-            </div>
-        </div>
-        `;
-    });
-
-    // Matemáticas
-    let delivery = carrito.length > 0 ? 15.00 : 0; // Envío solo si hay cosas
-    let tax = subtotal * 0.16; // 16% IVA
-    let total = subtotal + delivery + tax;
-
-    // Mandamos el dinero a la pantalla
-    document.getElementById('cart-subtotal').innerText = '$' + subtotal.toFixed(2);
-    document.getElementById('cart-delivery').innerText = '$' + delivery.toFixed(2);
-    document.getElementById('cart-tax').innerText = '$' + tax.toFixed(2);
-    document.getElementById('cart-total').innerText = '$' + total.toFixed(2);
+window.eliminarDelCarrito = function(index) {
+    carrito.splice(index, 1);
+    actualizarCarritoUI();
 }
 
+window.vaciarCarrito = function() {
+    carrito = [];
+    actualizarCarritoUI();
+}
 
+function actualizarCarritoUI() {
+    const contenedor = document.getElementById('contenedor-items-carrito');
+    const contador = document.getElementById('cart-contador');
+    contenedor.innerHTML = "";
+    let subtotal = 0;
 
+    carrito.forEach((item, index) => {
+        subtotal += item.precio * item.cantidad;
+        contenedor.innerHTML += `
+            <div class="cart-item">
+                <img src="${item.imagen}" alt="${item.nombre}">
+                <div class="cart-item-info">
+                    <h4>${item.nombre}</h4>
+                    <span>$${item.precio.toFixed(2)}</span>
+                </div>
+                <div class="cart-item-controls">
+                    <span class="qty-pill">Cant: ${item.cantidad}</span>
+                    <button class="btn-delete" onclick="eliminarDelCarrito(${index})">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </div>
+            </div>`;
+    });
+
+    const delivery = subtotal > 0 ? 15.00 : 0;
+    const tax = subtotal * 0.05; // 5% de ejemplo
+    
+    document.getElementById('cart-subtotal').innerText = `$${subtotal.toFixed(2)}`;
+    document.getElementById('cart-delivery').innerText = `$${delivery.toFixed(2)}`;
+    document.getElementById('cart-tax').innerText = `$${tax.toFixed(2)}`;
+    document.getElementById('cart-total').innerText = `$${(subtotal + delivery + tax).toFixed(2)}`;
+    contador.innerText = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+}
+
+window.abrirCarrito = () => document.getElementById('modal-carrito').style.display = 'flex';
+window.cerrarCarrito = () => document.getElementById('modal-carrito').style.display = 'none';
+
+// Tabs
+window.openTab = function(evt, tabName) {
+    document.querySelectorAll(".tab-content").forEach(t => t.style.display = "none");
+    document.querySelectorAll(".tab-link").forEach(l => l.classList.remove("activa"));
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.classList.add("activa");
+}
+
+cargarProductos();
 </script>
 <script src="script.js"></script>
 
-</body>
+
 </html>
