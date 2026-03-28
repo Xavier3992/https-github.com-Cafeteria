@@ -1594,3 +1594,42 @@ body {
         display: block;
     }
 }
+/* Estilos para el botón de volver */
+.btn-volver-tienda {
+    position: fixed; /* Se queda quieto aunque bajes en la página */
+    top: 20px;
+    left: 20px;
+    z-index: 9999; /* Para que siempre esté por encima de todo */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #331d10; /* Color café oscuro */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco traslúcido */
+    padding: 10px 18px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.btn-volver-tienda i {
+    font-size: 1.2rem;
+}
+
+.btn-volver-tienda:hover {
+    background-color: #d2b48c; /* Cambia a beige al pasar el mouse */
+    color: white;
+    transform: translateX(5px); /* Pequeño efecto de movimiento */
+}
+
+/* Ajuste para móviles */
+@media (max-width: 600px) {
+    .btn-volver-tienda span {
+        display: none; /* En celular pequeño solo mostramos la casita para no tapar */
+    }
+    .btn-volver-tienda {
+        padding: 12px;
+    }
+}
