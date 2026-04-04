@@ -613,12 +613,11 @@ body {
     flex-direction: column; /* Alinea las tarjetas una debajo de otra */
     align-items: center;    /* Las centra perfectamente */
     gap: 20px;
+    max-width: 350px;
+    width: 100%;
 
 }
-.tarjeta { 
-        width: 100%;
-        max-width: 350px; 
-    }
+
 
 .tarjetas-grid {
     display: grid;
