@@ -607,12 +607,18 @@ body {
 
 /* --- 2. TARJETAS BEIGE --- */
 .tarjetas-container {
-    max-width: 950px;
-    margin: -40px auto 40px auto; /* El margen negativo lo sube un poco hacia el banner */
-    padding: 0 20px;
-    position: relative;
-    z-index: 10;
+    margin: 20px auto; /* Quitamos el margen negativo para que no choque con el banner */
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column; /* Alinea las tarjetas una debajo de otra */
+    align-items: center;    /* Las centra perfectamente */
+    gap: 20px;
+
 }
+.tarjeta { 
+        width: 100%;
+        max-width: 350px; 
+    }
 
 .tarjetas-grid {
     display: grid;
